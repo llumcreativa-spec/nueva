@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Veta Manufacturera diseña y fabrica piezas industriales en termoformado y fibra de vidrio en México. Maquila industrial y proyectos integrales con enfoque B2B." />
+  <title>Veta Manufacturera | Termoformado y Fibra de Vidrio en México</title>
+  <style>
+    :root {
+      --bg: #0f1114;
+      --surface: #171b20;
+      --surface-light: #212833;
+      --text: #e5e9f0;
+      --muted: #b4bdc7;
+      --accent: #2a6db0;
+      --accent-light: #3f8dd6;
+      --metal: #7b8794;
+      --cta: #1f5a96;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1100px, 90%);
+      margin: 0 auto;
+    }
+
+    header {
+      background: linear-gradient(135deg, rgba(15, 17, 20, 0.95), rgba(23, 27, 32, 0.95)),
+        radial-gradient(circle at top right, rgba(63, 141, 214, 0.25), transparent 55%);
+      padding: 72px 0 56px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .hero {
+      display: grid;
+      gap: 32px;
+      align-items: center;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 3vw, 3rem);
+      margin: 0 0 12px;
+    }
+
+    .hero p {
+      margin: 0 0 20px;
+      color: var(--muted);
+    }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--cta);
+      padding: 12px 24px;
+      border-radius: 6px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      transition: background 0.2s ease;
+    }
+
+    .cta:hover {
+      background: var(--accent-light);
+    }
+
+    .hero-card {
+      background: var(--surface);
+      padding: 28px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    section {
+      padding: 64px 0;
+    }
+
+    section h2 {
+      font-size: clamp(1.4rem, 2vw, 2rem);
+      margin-bottom: 16px;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+
+    .services {
+      display: grid;
+      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .service-card {
+      background: var(--surface);
+      padding: 24px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .service-card h2 {
+      margin-top: 0;
+      color: var(--accent-light);
+    }
+
+    .gallery {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .gallery figure {
+      margin: 0;
+      background: var(--surface-light);
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .gallery img {
+      width: 100%;
+      display: block;
+    }
+
+    .gallery figcaption {
+      padding: 12px 14px;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .contact-wrapper {
+      display: grid;
+      gap: 28px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    form {
+      display: grid;
+      gap: 14px;
+      background: var(--surface);
+      padding: 24px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    label {
+      font-weight: 600;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: #101418;
+      color: var(--text);
+      font-size: 0.95rem;
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    button {
+      border: none;
+      background: var(--accent);
+      color: #fff;
+      padding: 12px;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .contact-info {
+      background: var(--surface-light);
+      padding: 24px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .contact-info p {
+      margin: 0 0 12px;
+      color: var(--muted);
+    }
+
+    footer {
+      background: #0c0e11;
+      padding: 24px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    footer p {
+      margin: 0;
+      color: var(--metal);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 720px) {
+      header {
+        padding: 56px 0 48px;
+      }
+
+      .hero-card {
+        order: -1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container hero">
+      <div>
+        <p class="subtitle">Veta Manufacturera · Ingeniería y producción industrial B2B</p>
+        <h1>Diseño y fabricación de piezas en termoformado y fibra de vidrio en México</h1>
+        <p>Desarrollamos y fabricamos piezas industriales a la medida, acompañando tu proyecto desde la idea hasta el producto final.</p>
+        <a class="cta" href="#contacto">Cotiza tu proyecto</a>
+      </div>
+      <div class="hero-card">
+        <h2>Quiénes somos</h2>
+        <p>Empresa mexicana especializada en diseño, fabricación y maquila de piezas en termoformado y fibra de vidrio, adaptándose a necesidades técnicas y presupuesto del cliente.</p>
+        <p><strong>Mensaje clave:</strong> Veta Manufacturera es el aliado industrial que convierte ideas en piezas funcionales, adaptadas a las necesidades técnicas y económicas del cliente.</p>
+      </div>
+    </div>
+  </header>
+
+  <section id="servicios">
+    <div class="container">
+      <h2>Servicios industriales especializados</h2>
+      <p class="subtitle">Soluciones enfocadas en diseño y fabricación de piezas industriales con eficiencia, trazabilidad técnica y acompañamiento continuo.</p>
+      <div class="services">
+        <article class="service-card">
+          <h2>Diseño industrial de piezas a la medida</h2>
+          <p>Resolvemos la necesidad de conceptualizar piezas funcionales desde cero, alineando ingeniería, resistencia y costos. Nuestro equipo traduce requerimientos en propuestas técnicas con enfoque en diseño y fabricación de piezas industriales para líneas productivas exigentes.</p>
+          <p>Personalizamos cada componente, optimizando materiales y procesos para mejorar tiempos y rendimiento.</p>
+        </article>
+        <article class="service-card">
+          <h2>Fabricación en termoformado</h2>
+          <p>Ideal para proyectos que requieren volumen, precisión y acabados consistentes. Atendemos clientes que buscan termoformado en México con control de calidad y acompañamiento desde el prototipo hasta la serie.</p>
+          <p>Integramos eficiencia energética y tiempos de ciclo competitivos para mantener tu operación ágil.</p>
+        </article>
+        <article class="service-card">
+          <h2>Fabricación en fibra de vidrio</h2>
+          <p>Para aplicaciones que demandan resistencia química, ligereza y alto desempeño, desarrollamos soluciones de fabricación en fibra de vidrio con moldes propios y procesos certificados.</p>
+          <p>Entregamos piezas a la medida fibra de vidrio para sectores industriales que requieren durabilidad y precisión.</p>
+        </article>
+        <article class="service-card">
+          <h2>Maquila industrial</h2>
+          <p>Si tu empresa necesita liberar capacidad interna, nuestra maquila industrial México integra procesos completos de corte, armado y acabado, manteniendo estándares técnicos y tiempos confiables.</p>
+          <p>Nos adaptamos a tu cadena de suministro con reportes y coordinación técnica continua.</p>
+        </article>
+        <article class="service-card">
+          <h2>Desarrollo de proyectos industriales integrales</h2>
+          <p>Gestionamos proyectos completos para empresas que requieren un proveedor confiable, desde la ingeniería inicial hasta la entrega final.</p>
+          <p>Optimizamos recursos, reducimos riesgos y aseguramos acompañamiento técnico en cada etapa del proyecto.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="galeria">
+    <div class="container">
+      <h2>Galería y capacidad productiva</h2>
+      <p class="subtitle">Contamos con la capacidad técnica y productiva para atender proyectos industriales de diferentes escalas.</p>
+      <div class="gallery">
+        <figure>
+          <img alt="Proceso de termoformado industrial" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='260'><rect width='400' height='260' fill='%23212833'/><rect x='30' y='40' width='340' height='180' fill='%232a6db0' opacity='0.4'/><text x='50%' y='52%' fill='%23e5e9f0' font-size='18' font-family='Arial' text-anchor='middle'>Proceso de termoformado</text></svg>" />
+          <figcaption>Procesos de termoformado con control técnico y acabados consistentes.</figcaption>
+        </figure>
+        <figure>
+          <img alt="Moldes de fibra de vidrio" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='260'><rect width='400' height='260' fill='%23212833'/><circle cx='200' cy='130' r='90' fill='%233f8dd6' opacity='0.35'/><text x='50%' y='52%' fill='%23e5e9f0' font-size='18' font-family='Arial' text-anchor='middle'>Moldes industriales</text></svg>" />
+          <figcaption>Moldes y utillajes especializados para fabricación en fibra de vidrio.</figcaption>
+        </figure>
+        <figure>
+          <img alt="Fabricación de piezas industriales" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='260'><rect width='400' height='260' fill='%23212833'/><rect x='60' y='60' width='280' height='140' fill='%237b8794' opacity='0.4'/><text x='50%' y='52%' fill='%23e5e9f0' font-size='18' font-family='Arial' text-anchor='middle'>Fabricación de piezas</text></svg>" />
+          <figcaption>Fabricación de piezas industriales con inspección y trazabilidad.</figcaption>
+        </figure>
+        <figure>
+          <img alt="Piezas terminadas a la medida" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='260'><rect width='400' height='260' fill='%23212833'/><polygon points='60,210 340,210 280,60 120,60' fill='%232a6db0' opacity='0.35'/><text x='50%' y='52%' fill='%23e5e9f0' font-size='18' font-family='Arial' text-anchor='middle'>Piezas terminadas</text></svg>" />
+          <figcaption>Piezas terminadas listas para integración en líneas productivas.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto">
+    <div class="container">
+      <h2>Contacto y captura de leads</h2>
+      <p class="subtitle">Conversemos sobre tu proyecto industrial. Respuesta técnica y comercial en menos de 48 horas.</p>
+      <div class="contact-wrapper">
+        <form>
+          <div>
+            <label for="nombre">Nombre</label>
+            <input id="nombre" name="nombre" type="text" placeholder="Nombre completo" required />
+          </div>
+          <div>
+            <label for="empresa">Empresa</label>
+            <input id="empresa" name="empresa" type="text" placeholder="Razón social" required />
+          </div>
+          <div>
+            <label for="correo">Correo</label>
+            <input id="correo" name="correo" type="email" placeholder="correo@empresa.com" required />
+          </div>
+          <div>
+            <label for="telefono">Teléfono</label>
+            <input id="telefono" name="telefono" type="tel" placeholder="(0155) 0000 0000" required />
+          </div>
+          <div>
+            <label for="descripcion">Descripción del proyecto</label>
+            <textarea id="descripcion" name="descripcion" placeholder="Describe dimensiones, materiales y volumen estimado"></textarea>
+          </div>
+          <button type="submit">Hablemos de tu proyecto</button>
+        </form>
+        <div class="contact-info">
+          <h3>Datos de contacto</h3>
+          <p><strong>Tel:</strong> (0155) 5545 9964 / 5254 3014</p>
+          <p><strong>Dirección:</strong> Mariano Escobedo No. 510, Piso 7, Col. Anzures, CDMX</p>
+          <p>Especialistas en diseño y fabricación de piezas industriales con acompañamiento técnico desde México para todo el país.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>Veta Manufacturera · Termoformado en México · Fabricación en fibra de vidrio · Maquila industrial México</p>
+    </div>
+  </footer>
+</body>
+</html>
