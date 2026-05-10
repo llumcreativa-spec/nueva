@@ -68,8 +68,8 @@
     .logo-mark {
       display: inline-grid;
       place-items: center;
-      width: 54px;
-      height: 54px;
+      width: 132px;
+      height: 62px;
       border-radius: 12px;
       background: linear-gradient(135deg, #2a6db0, #7b8794);
       border: 1px solid rgba(255, 255, 255, 0.22);
@@ -245,7 +245,7 @@
       <header class="admin-header">
         <div class="brand">
           <span class="logo-mark" aria-hidden="true">
-            <img src="public/htlm/LOGOTIPO.jpg" alt="" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+            <img src="LOGOTIPO.jpg" alt="" onerror="this.onerror=function(){this.style.display='none'; this.nextElementSibling.style.display='block';}; this.src='public/html/LOGOTIPO.jpg';" />
             <svg class="logo-fallback" viewBox="0 0 64 64" role="img" aria-label="Logotipo provisional Veta Manufacturera">
               <path d="M8 12h15l9 28 9-28h15L39 54H25L8 12Z" fill="#ffffff"/>
               <path d="M32 40 23 12h18L32 40Z" fill="#d8dee7" opacity="0.72"/>
@@ -286,11 +286,10 @@
         <h2>¿Dónde guardar los archivos?</h2>
         <p>Sube los archivos al hosting usando estas rutas. Respeta mayúsculas, minúsculas y extensiones.</p>
         <ul class="path-list">
-          <li><strong>Logotipo oficial:</strong> <code>public/htlm/LOGOTIPO.jpg</code></li>
-          <li><strong>Fotos de procesos:</strong> <code>public/htlm/fotografias/foto-1.jpg</code>, <code>foto-2.jpg</code>, <code>foto-3.jpg</code></li>
-          <li><strong>Fotos de piezas terminadas:</strong> <code>public/htlm/fotografias/pieza-1.jpg</code>, <code>pieza-2.jpg</code></li>
+          <li><strong>Logotipo oficial:</strong> <code>public/html/LOGOTIPO.jpg</code></li>
+          <li><strong>Fotos de procesos:</strong> <code>public/html/fotografias/foto-1.jpg</code>, <code>foto-2.jpg</code>, <code>foto-3.jpg</code>, <code>foto-4.jpg</code></li>
         </ul>
-        <p><span class="danger">Nota:</span> conservé la ruta escrita como <code>public/htlm</code> porque así fue indicada. Si el hosting realmente usa <code>public/html</code>, actualiza la ruta del logotipo en el HTML o guarda los archivos en la carpeta correcta.</p>
+        <p><span class="danger">Nota:</span> si el archivo <code>index.html</code> está dentro de <code>public/html</code>, el sitio cargará el logotipo con <code>LOGOTIPO.jpg</code> y las fotos con <code>fotografias/foto-1.jpg</code>, <code>foto-2.jpg</code>, <code>foto-3.jpg</code> y <code>foto-4.jpg</code>.</p>
       </section>
     </section>
   </main>
