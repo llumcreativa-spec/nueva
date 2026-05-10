@@ -91,10 +91,21 @@
       flex: 0 0 auto;
     }
 
+    .logo-mark img,
     .logo-mark svg {
       display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .logo-mark svg {
       width: 34px;
       height: 34px;
+    }
+
+    .logo-fallback {
+      display: none;
     }
 
     .brand-text {
@@ -413,10 +424,76 @@
 
     footer p { margin: 0; color: var(--metal); font-size: 0.9rem; }
 
+
+
+    .upload-panel {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 26px;
+      display: grid;
+      gap: 20px;
+      grid-template-columns: minmax(0, 0.95fr) minmax(280px, 1.05fr);
+      align-items: start;
+    }
+
+    .upload-box {
+      border: 1px dashed rgba(63, 141, 214, 0.72);
+      border-radius: 14px;
+      padding: 22px;
+      background: rgba(63, 141, 214, 0.08);
+    }
+
+    .upload-box input[type="file"] {
+      background: #fff;
+      color: #17202a;
+      border: 0;
+      cursor: pointer;
+    }
+
+    .path-list {
+      background: #101418;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      color: var(--muted);
+      list-style: none;
+      margin: 16px 0 0;
+      padding: 16px;
+    }
+
+    .path-list code {
+      color: #fff;
+      font-weight: 700;
+      word-break: break-all;
+    }
+
+    .preview-grid {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      margin-top: 14px;
+    }
+
+    .preview-grid img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: #101418;
+    }
+
+    .upload-note {
+      color: var(--muted);
+      font-size: 0.94rem;
+      margin: 0;
+    }
+
     @media (max-width: 860px) {
       .hero,
       .split,
-      .contact-wrapper { grid-template-columns: 1fr; }
+      .contact-wrapper,
+      .upload-panel { grid-template-columns: 1fr; }
       .hero-card { order: -1; }
       .metrics { grid-template-columns: 1fr; }
       section { padding: 56px 0; }
@@ -434,9 +511,10 @@
   <nav aria-label="Navegación principal">
     <div class="container">
       <a class="brand" href="#inicio" aria-label="Veta Manufacturera - inicio">
-        <!-- LOGOTIPO: reemplaza este SVG por el logotipo oficial de Veta Manufacturera cuando lo tengas disponible. -->
+        <!-- LOGOTIPO: guarda el archivo oficial exactamente en public/htlm/LOGOTIPO.jpg para que se muestre aquí. -->
         <span class="logo-mark" aria-hidden="true">
-          <svg viewBox="0 0 64 64" role="img" aria-label="Logotipo provisional Veta Manufacturera">
+          <img src="public/htlm/LOGOTIPO.jpg" alt="" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+          <svg class="logo-fallback" viewBox="0 0 64 64" role="img" aria-label="Logotipo provisional Veta Manufacturera">
             <path d="M8 12h15l9 28 9-28h15L39 54H25L8 12Z" fill="#ffffff"/>
             <path d="M32 40 23 12h18L32 40Z" fill="#d8dee7" opacity="0.72"/>
           </svg>
@@ -451,6 +529,7 @@
         <a href="#termoformado">Termoformado</a>
         <a href="#fibra">Fibra de vidrio</a>
         <a href="#servicios">Servicios</a>
+        <a href="#subir-fotos">Subir fotos</a>
         <a href="#contacto">Contacto</a>
       </div>
     </div>
@@ -640,6 +719,35 @@
       </div>
     </section>
 
+
+
+    <section id="subir-fotos" class="light-section">
+      <div class="container">
+        <p class="eyebrow">Administración de imágenes</p>
+        <h2>Acceso para cargar fotografías y logotipo</h2>
+        <p class="subtitle">Esta página es estática; por seguridad, el botón permite previsualizar las fotografías antes de publicarlas. Para que queden visibles en el sitio, súbelas al hosting en las rutas indicadas.</p>
+        <div class="upload-panel">
+          <div class="upload-box">
+            <h3>Previsualizar fotografías antes de subirlas</h3>
+            <p class="upload-note">Selecciona imágenes desde tu computadora para revisar cómo se verán. Este control no guarda archivos en el servidor; sólo sirve como vista previa local.</p>
+            <label for="photoUpload">Seleccionar fotografías</label>
+            <input id="photoUpload" type="file" accept="image/*" multiple />
+            <div id="photoPreview" class="preview-grid" aria-live="polite"></div>
+          </div>
+          <div>
+            <h3>¿Dónde guardar los archivos?</h3>
+            <p>Para que el sitio los encuentre, sube los archivos con estos nombres y rutas dentro de tu hosting:</p>
+            <ul class="path-list">
+              <li><strong>Logotipo:</strong> <code>public/htlm/LOGOTIPO.jpg</code></li>
+              <li><strong>Fotos de procesos:</strong> <code>public/htlm/fotografias/foto-1.jpg</code>, <code>foto-2.jpg</code>, <code>foto-3.jpg</code></li>
+              <li><strong>Fotos de piezas terminadas:</strong> <code>public/htlm/fotografias/pieza-1.jpg</code>, <code>pieza-2.jpg</code></li>
+            </ul>
+            <p class="upload-note">Nota: respeté la carpeta que indicaste como <strong>public/htlm</strong>. Si en tu servidor la carpeta correcta es <strong>public/html</strong>, cambia la ruta en el HTML o guarda los archivos en esa carpeta exacta.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="contacto">
       <div class="container">
         <h2>Contacto y captura de leads</h2>
@@ -685,5 +793,24 @@
       <p>Veta Manufacturera · 30 años en México · Termoformado · Fabricación en fibra de vidrio · Maquila industrial México</p>
     </div>
   </footer>
+
+  <script>
+    const photoUpload = document.getElementById('photoUpload');
+    const photoPreview = document.getElementById('photoPreview');
+
+    if (photoUpload && photoPreview) {
+      photoUpload.addEventListener('change', () => {
+        photoPreview.innerHTML = '';
+        Array.from(photoUpload.files).forEach((file) => {
+          if (!file.type.startsWith('image/')) return;
+          const image = document.createElement('img');
+          image.alt = `Vista previa de ${file.name}`;
+          image.src = URL.createObjectURL(file);
+          image.onload = () => URL.revokeObjectURL(image.src);
+          photoPreview.appendChild(image);
+        });
+      });
+    }
+  </script>
 </body>
 </html>
