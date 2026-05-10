@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Acceso privado | Fotografías y logotipo Veta Manufacturera</title>
+  <style>
+    :root {
+      --bg: #0f1114;
+      --surface: #171b20;
+      --surface-light: #212833;
+      --text: #e5e9f0;
+      --muted: #b4bdc7;
+      --accent: #2a6db0;
+      --accent-light: #3f8dd6;
+      --line: rgba(255, 255, 255, 0.09);
+      --danger: #d65f5f;
+      --success: #63c27d;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(63, 141, 214, 0.22), transparent 42%),
+        linear-gradient(135deg, #0f1114, #171b20 62%, #0c0e11);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container {
+      width: min(1040px, 92%);
+      margin: 0 auto;
+      padding: 42px 0;
+    }
+
+    .admin-header,
+    .panel {
+      background: rgba(23, 27, 32, 0.94);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: 0 22px 50px rgba(0, 0, 0, 0.35);
+    }
+
+    .admin-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 22px;
+      margin-bottom: 22px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      text-transform: uppercase;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+    }
+
+    .logo-mark {
+      display: inline-grid;
+      place-items: center;
+      width: 54px;
+      height: 54px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #2a6db0, #7b8794);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      overflow: hidden;
+      flex: 0 0 auto;
+    }
+
+    .logo-mark img,
+    .logo-mark svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .logo-mark svg {
+      width: 38px;
+      height: 38px;
+    }
+
+    .logo-fallback { display: none; }
+
+    .status {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin: 0;
+    }
+
+    .panel {
+      padding: 28px;
+      margin-bottom: 22px;
+    }
+
+    h1,
+    h2,
+    h3 { line-height: 1.15; margin-top: 0; }
+
+    h1 { font-size: clamp(2rem, 4vw, 3.1rem); margin-bottom: 12px; }
+    h2 { font-size: clamp(1.35rem, 2.5vw, 2rem); }
+
+    p { color: var(--muted); }
+
+    label {
+      display: block;
+      font-weight: 700;
+      color: var(--muted);
+      margin-bottom: 7px;
+    }
+
+    input,
+    button {
+      width: 100%;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    input {
+      padding: 12px 13px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: #101418;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+
+    input[type="file"] {
+      background: #f4f7fb;
+      color: #17202a;
+      cursor: pointer;
+    }
+
+    button {
+      border: 0;
+      padding: 13px 18px;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    button:hover { background: var(--accent-light); }
+
+    .login-card {
+      max-width: 520px;
+      margin: 48px auto;
+    }
+
+    .error {
+      display: none;
+      color: #fff;
+      background: rgba(214, 95, 95, 0.22);
+      border: 1px solid rgba(214, 95, 95, 0.6);
+      padding: 10px 12px;
+      border-radius: 8px;
+      margin-top: 14px;
+    }
+
+    .private-area { display: none; }
+    .private-area.is-visible { display: block; }
+    .login-card.is-hidden { display: none; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 22px;
+    }
+
+    .upload-box {
+      background: var(--surface-light);
+      border: 1px dashed rgba(63, 141, 214, 0.72);
+      border-radius: 14px;
+      padding: 22px;
+    }
+
+    .preview-grid {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));
+      margin-top: 16px;
+    }
+
+    .preview-grid img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: #101418;
+    }
+
+    .path-list {
+      background: #101418;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      color: var(--muted);
+      list-style: none;
+      margin: 18px 0 0;
+      padding: 18px;
+    }
+
+    .path-list li + li { margin-top: 12px; }
+
+    code {
+      color: #fff;
+      font-weight: 800;
+      word-break: break-all;
+    }
+
+    .notice {
+      border-left: 4px solid var(--accent-light);
+      background: rgba(63, 141, 214, 0.1);
+      padding: 14px 16px;
+      border-radius: 10px;
+    }
+
+    .success { color: var(--success); font-weight: 800; }
+    .danger { color: var(--danger); font-weight: 800; }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <section id="login" class="panel login-card" aria-labelledby="login-title">
+      <h1 id="login-title">Acceso privado</h1>
+      <p>Área interna para preparar fotografías y logotipo antes de subirlos al hosting. Esta página no aparece en el menú público del sitio.</p>
+      <form id="loginForm">
+        <label for="accessCode">Clave de acceso</label>
+        <input id="accessCode" type="password" autocomplete="current-password" placeholder="Ingresa la clave privada" required />
+        <button type="submit">Entrar al panel</button>
+        <p id="loginError" class="error" role="alert">Clave incorrecta. Verifica la clave privada configurada para el panel.</p>
+      </form>
+    </section>
+
+    <section id="privateArea" class="private-area" aria-label="Panel privado para fotografías y logotipo">
+      <header class="admin-header">
+        <div class="brand">
+          <span class="logo-mark" aria-hidden="true">
+            <img src="public/htlm/LOGOTIPO.jpg" alt="" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+            <svg class="logo-fallback" viewBox="0 0 64 64" role="img" aria-label="Logotipo provisional Veta Manufacturera">
+              <path d="M8 12h15l9 28 9-28h15L39 54H25L8 12Z" fill="#ffffff"/>
+              <path d="M32 40 23 12h18L32 40Z" fill="#d8dee7" opacity="0.72"/>
+            </svg>
+          </span>
+          <span>Veta Manufacturera</span>
+        </div>
+        <p class="status"><span class="success">Panel privado activo</span> · No enlazado desde la página pública</p>
+      </header>
+
+      <section class="panel">
+        <h1>Subir fotografías y logotipo</h1>
+        <p>Usa este panel como acceso separado para seleccionar y revisar imágenes. Después, guarda los archivos en el hosting exactamente en las rutas indicadas para que el sitio público los cargue.</p>
+        <div class="notice">
+          <p><strong>Importante:</strong> una página HTML estática no puede guardar archivos por sí sola en el servidor. Para una carga real con botón “Subir”, el hosting debe tener un backend privado, FTP, cPanel, administrador de archivos o protección por contraseña del servidor.</p>
+        </div>
+      </section>
+
+      <section class="grid">
+        <article class="upload-box">
+          <h2>1. Logotipo</h2>
+          <p>Selecciona el archivo <code>LOGOTIPO.jpg</code> para previsualizarlo antes de colocarlo en el hosting.</p>
+          <label for="logoUpload">Seleccionar logotipo</label>
+          <input id="logoUpload" type="file" accept="image/*" />
+          <div id="logoPreview" class="preview-grid" aria-live="polite"></div>
+        </article>
+
+        <article class="upload-box">
+          <h2>2. Fotografías</h2>
+          <p>Selecciona fotografías de procesos, moldes, piezas terminadas o instalaciones para revisar cómo se verán.</p>
+          <label for="photoUpload">Seleccionar fotografías</label>
+          <input id="photoUpload" type="file" accept="image/*" multiple />
+          <div id="photoPreview" class="preview-grid" aria-live="polite"></div>
+        </article>
+      </section>
+
+      <section class="panel">
+        <h2>¿Dónde guardar los archivos?</h2>
+        <p>Sube los archivos al hosting usando estas rutas. Respeta mayúsculas, minúsculas y extensiones.</p>
+        <ul class="path-list">
+          <li><strong>Logotipo oficial:</strong> <code>public/htlm/LOGOTIPO.jpg</code></li>
+          <li><strong>Fotos de procesos:</strong> <code>public/htlm/fotografias/foto-1.jpg</code>, <code>foto-2.jpg</code>, <code>foto-3.jpg</code></li>
+          <li><strong>Fotos de piezas terminadas:</strong> <code>public/htlm/fotografias/pieza-1.jpg</code>, <code>pieza-2.jpg</code></li>
+        </ul>
+        <p><span class="danger">Nota:</span> conservé la ruta escrita como <code>public/htlm</code> porque así fue indicada. Si el hosting realmente usa <code>public/html</code>, actualiza la ruta del logotipo en el HTML o guarda los archivos en la carpeta correcta.</p>
+      </section>
+    </section>
+  </main>
+
+  <script>
+    const ACCESS_CODE = 'VETA-PRIVADO-2026';
+    const loginForm = document.getElementById('loginForm');
+    const accessCode = document.getElementById('accessCode');
+    const loginError = document.getElementById('loginError');
+    const login = document.getElementById('login');
+    const privateArea = document.getElementById('privateArea');
+
+    function showPrivateArea() {
+      login.classList.add('is-hidden');
+      privateArea.classList.add('is-visible');
+    }
+
+    if (sessionStorage.getItem('veta-admin-access') === 'ok') {
+      showPrivateArea();
+    }
+
+    loginForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      if (accessCode.value === ACCESS_CODE) {
+        sessionStorage.setItem('veta-admin-access', 'ok');
+        showPrivateArea();
+        return;
+      }
+      loginError.style.display = 'block';
+      accessCode.value = '';
+      accessCode.focus();
+    });
+
+    function renderPreviews(input, target) {
+      target.innerHTML = '';
+      Array.from(input.files).forEach((file) => {
+        if (!file.type.startsWith('image/')) return;
+        const image = document.createElement('img');
+        image.alt = `Vista previa de ${file.name}`;
+        image.src = URL.createObjectURL(file);
+        image.onload = () => URL.revokeObjectURL(image.src);
+        target.appendChild(image);
+      });
+    }
+
+    const logoUpload = document.getElementById('logoUpload');
+    const logoPreview = document.getElementById('logoPreview');
+    const photoUpload = document.getElementById('photoUpload');
+    const photoPreview = document.getElementById('photoPreview');
+
+    logoUpload.addEventListener('change', () => renderPreviews(logoUpload, logoPreview));
+    photoUpload.addEventListener('change', () => renderPreviews(photoUpload, photoPreview));
+  </script>
+</body>
+</html>
