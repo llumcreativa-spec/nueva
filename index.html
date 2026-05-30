@@ -352,6 +352,15 @@
       grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
     }
 
+    .gallery.expanded-gallery {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 22px;
+    }
+
+    .expanded-gallery .photo-slot {
+      min-height: 270px;
+    }
+
     .gallery figure {
       margin: 0;
       background: var(--surface-light);
@@ -439,6 +448,13 @@
       border-radius: 12px;
       background: rgba(42, 109, 176, 0.11);
       color: var(--muted);
+    }
+
+    .gallery-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: 18px 0 0;
     }
 
     .asset-note strong { color: #fff; }
@@ -544,6 +560,7 @@
         <a href="#termoformado">Termoformado</a>
         <a href="#fibra">Fibra de vidrio</a>
         <a href="#servicios">Servicios</a>
+        <a href="#galeria">Galería</a>
         <a href="#contacto">Contacto</a>
       </div>
     </div>
@@ -782,13 +799,231 @@
             <figcaption>Piezas industriales terminadas. Guarda esta imagen como <code>fotografias/foto-4.jpg</code>.</figcaption>
           </figure>
         </div>
+        <div class="gallery-actions">
+          <a class="cta" href="#galeria-ampliada">Ver más fotografías</a>
+        </div>
         <div class="asset-note">
-          <strong>Estas imágenes no se cargan desde internet:</strong> el sitio buscará fotografías locales. Guarda tus archivos dentro de <code>public/html/fotografias/</code> con estos nombres exactos y en el orden que definas en el panel privado: <code>foto-1.jpg</code>, <code>foto-2.jpg</code>, <code>foto-3.jpg</code> y <code>foto-4.jpg</code>. El logotipo debe estar como <code>public/html/LOGOTIPO.jpg</code>, en la misma carpeta del archivo <code>index.html</code>.
+          <strong>Estas imágenes no se cargan desde internet:</strong> el sitio buscará fotografías locales. Guarda tus archivos dentro de <code>public/html/fotografias/</code>. Las primeras cuatro fotos (<code>foto-1.jpg</code> a <code>foto-4.jpg</code>) aparecen aquí como galería principal; las fotos adicionales (<code>foto-5.jpg</code> a <code>foto-16.jpg</code>) aparecen en la galería ampliada. El logotipo debe estar como <code>public/html/LOGOTIPO.jpg</code>, en la misma carpeta del archivo <code>index.html</code>.
         </div>
       </div>
     </section>
 
-
+    <section id="galeria-ampliada" class="light-section">
+      <div class="container">
+        <p class="eyebrow">Más espacio para fotografías</p>
+        <h2>Galería ampliada de procesos y proyectos industriales</h2>
+        <p class="subtitle">Este espacio permite mostrar más fotografías reales de termoformado, fibra de vidrio, moldes, maquila industrial y piezas terminadas. Para llenarlo, sube archivos JPG en <code>public/html/fotografias/</code> con los nombres <code>foto-5.jpg</code> a <code>foto-16.jpg</code>.</p>
+        <div class="gallery expanded-gallery">
+          <figure>
+            <div class="photo-slot">
+              <img class="local-photo" data-srcs="fotografias/foto-5.jpg|public/html/fotografias/foto-5.jpg" alt="Proyecto industrial Veta Manufacturera" />
+              <div class="photo-placeholder" aria-hidden="true">
+                <svg viewBox="0 0 320 210" role="img">
+                  <rect x="22" y="42" width="276" height="126" rx="16" fill="#171b20" stroke="#d8dee7" stroke-opacity="0.26" />
+                  <rect x="50" y="70" width="92" height="58" rx="9" fill="#8b96a3" opacity="0.78" />
+                  <rect x="166" y="70" width="104" height="58" rx="9" fill="#2a6db0" opacity="0.74" />
+                  <path d="M58 148h204" stroke="#d8dee7" stroke-opacity="0.52" stroke-width="10" stroke-linecap="round" />
+                  <path d="M86 148h46M160 148h72" stroke="#101418" stroke-opacity="0.62" stroke-width="5" stroke-linecap="round" />
+                </svg>
+                <strong>Proyecto industrial</strong>
+                <span>Sube foto-5.jpg</span>
+              </div>
+            </div>
+            <figcaption>Proyecto industrial. Guarda esta imagen como <code>fotografias/foto-5.jpg</code>.</figcaption>
+          </figure>
+          <figure>
+            <div class="photo-slot">
+              <img class="local-photo" data-srcs="fotografias/foto-6.jpg|public/html/fotografias/foto-6.jpg" alt="Termoformado detalle Veta Manufacturera" />
+              <div class="photo-placeholder" aria-hidden="true">
+                <svg viewBox="0 0 320 210" role="img">
+                  <rect x="22" y="42" width="276" height="126" rx="16" fill="#171b20" stroke="#d8dee7" stroke-opacity="0.26" />
+                  <rect x="50" y="70" width="92" height="58" rx="9" fill="#8b96a3" opacity="0.78" />
+                  <rect x="166" y="70" width="104" height="58" rx="9" fill="#2a6db0" opacity="0.74" />
+                  <path d="M58 148h204" stroke="#d8dee7" stroke-opacity="0.52" stroke-width="10" stroke-linecap="round" />
+                  <path d="M86 148h46M160 148h72" stroke="#101418" stroke-opacity="0.62" stroke-width="5" stroke-linecap="round" />
+                </svg>
+                <strong>Termoformado detalle</strong>
+                <span>Sube foto-6.jpg</span>
+              </div>
+            </div>
+            <figcaption>Termoformado detalle. Guarda esta imagen como <code>fotografias/foto-6.jpg</code>.</figcaption>
+          </figure>
+          <figure>
+            <div class="photo-slot">
+              <img class="local-photo" data-srcs="fotografias/foto-7.jpg|public/html/fotografias/foto-7.jpg" alt="Molde en proceso Veta Manufacturera" />
+              <div class="photo-placeholder" aria-hidden="true">
+                <svg viewBox="0 0 320 210" role="img">
+                  <rect x="22" y="42" width="276" height="126" rx="16" fill="#171b20" stroke="#d8dee7" stroke-opacity="0.26" />
+                  <rect x="50" y="70" width="92" height="58" rx="9" fill="#8b96a3" opacity="0.78" />
+                  <rect x="166" y="70" width="104" height="58" rx="9" fill="#2a6db0" opacity="0.74" />
+                  <path d="M58 148h204" stroke="#d8dee7" stroke-opacity="0.52" stroke-width="10" stroke-linecap="round" />
+                  <path d="M86 148h46M160 148h72" stroke="#101418" stroke-opacity="0.62" stroke-width="5" stroke-linecap="round" />
+                </svg>
+                <strong>Molde en proceso</strong>
+                <span>Sube foto-7.jpg</span>
+              </div>
+            </div>
+            <figcaption>Molde en proceso. Guarda esta imagen como <code>fotografias/foto-7.jpg</code>.</figcaption>
+          </figure>
+          <figure>
+            <div class="photo-slot">
+              <img class="local-photo" data-srcs="fotografias/foto-8.jpg|public/html/fotografias/foto-8.jpg" alt="Fibra de vidrio detalle Veta Manufacturera" />
+              <div class="photo-placeholder" aria-hidden="true">
+                <svg viewBox="0 0 320 210" role="img">
+                  <rect x="22" y="42" width="276" height="126" rx="16" fill="#171b20" stroke="#d8dee7" stroke-opacity="0.26" />
+                  <rect x="50" y="70" width="92" height="58" rx="9" fill="#8b96a3" opacity="0.78" />
+                  <rect x="166" y="70" width="104" height="58" rx="9" fill="#2a6db0" opacity="0.74" />
+                  <path d="M58 148h204" stroke="#d8dee7" stroke-opacity="0.52" stroke-width="10" stroke-linecap="round" />
+                  <path d="M86 148h46M160 148h72" stroke="#101418" stroke-opacity="0.62" stroke-width="5" stroke-linecap="round" />
+                </svg>
+                <strong>Fibra de vidrio detalle</strong>
+                <span>Sube foto-8.jpg</span>
+              </div>
+            </div>
+            <figcaption>Fibra de vidrio detalle. Guarda esta imagen como <code>fotografias/foto-8.jpg</code>.</figcaption>
+          </figure>
+          <figure>
+            <div class="photo-slot">
+              <img class="local-photo" data-srcs="fotografias/foto-9.jpg|public/html/fotografias/foto-9.jpg" alt="Pieza a la medida Veta Manufacturera" />
+              <div class="photo-placeholder" aria-hidden="true">
+                <svg viewBox="0 0 320 210" role="img">
+                  <rect x="22" y="42" width="276" height="126" rx="16" fill="#171b20" stroke="#d8dee7" stroke-opacity="0.26" />
+                  <rect x="50" y="70" width="92" height="58" rx="9" fill="#8b96a3" opacity="0.78" />
+                  <rect x="166" y="70" width="104" height="58" rx="9" fill="#2a6db0" opacity="0.74" />
+                  <path d="M58 148h204" stroke="#d8dee7" stroke-opacity="0.52" stroke-width="10" stroke-linecap="round" />
+                  <path d="M86 148h46M160 148h72" stroke="#101418" stroke-opacity="0.62" stroke-width="5" stroke-linecap="round" />
+                </svg>
+                <strong>Pieza a la medida</strong>
+                <span>Sube foto-9.jpg</span>
+              </div>
+            </div>
+            <figcaption>Pieza a la medida. Guarda esta imagen como <code>fotografias/foto-9.jpg</code>.</figcaption>
+          </figure>
+          <figure>
+            <div class="photo-slot">
+              <img class="local-photo" data-srcs="fotografias/foto-10.jpg|public/html/fotografias/foto-10.jpg" alt="Acabados industriales Veta Manufacturera" />
+              <div class="photo-placeholder" aria-hidden="true">
+                <svg viewBox="0 0 320 210" role="img">
+                  <rect x="22" y="42" width="276" height="126" rx="16" fill="#171b20" stroke="#d8dee7" stroke-opacity="0.26" />
+                  <rect x="50" y="70" width="92" height="58" rx="9" fill="#8b96a3" opacity="0.78" />
+                  <rect x="166" y="70" width="104" height="58" rx="9" fill="#2a6db0" opacity="0.74" />
+                  <path d="M58 148h204" stroke="#d8dee7" stroke-opacity="0.52" stroke-width="10" stroke-linecap="round" />
+                  <path d="M86 148h46M160 148h72" stroke="#101418" stroke-opacity="0.62" stroke-width="5" stroke-linecap="round" />
+                </svg>
+                <strong>Acabados industriales</strong>
+                <span>Sube foto-10.jpg</span>
+              </div>
+            </div>
+            <figcaption>Acabados industriales. Guarda esta imagen como <code>fotografias/foto-10.jpg</code>.</figcaption>
+          </figure>
+          <figure>
+            <div class="photo-slot">
+              <img class="local-photo" data-srcs="fotografias/foto-11.jpg|public/html/fotografias/foto-11.jpg" alt="Producción Veta Manufacturera" />
+              <div class="photo-placeholder" aria-hidden="true">
+                <svg viewBox="0 0 320 210" role="img">
+                  <rect x="22" y="42" width="276" height="126" rx="16" fill="#171b20" stroke="#d8dee7" stroke-opacity="0.26" />
+                  <rect x="50" y="70" width="92" height="58" rx="9" fill="#8b96a3" opacity="0.78" />
+                  <rect x="166" y="70" width="104" height="58" rx="9" fill="#2a6db0" opacity="0.74" />
+                  <path d="M58 148h204" stroke="#d8dee7" stroke-opacity="0.52" stroke-width="10" stroke-linecap="round" />
+                  <path d="M86 148h46M160 148h72" stroke="#101418" stroke-opacity="0.62" stroke-width="5" stroke-linecap="round" />
+                </svg>
+                <strong>Producción</strong>
+                <span>Sube foto-11.jpg</span>
+              </div>
+            </div>
+            <figcaption>Producción. Guarda esta imagen como <code>fotografias/foto-11.jpg</code>.</figcaption>
+          </figure>
+          <figure>
+            <div class="photo-slot">
+              <img class="local-photo" data-srcs="fotografias/foto-12.jpg|public/html/fotografias/foto-12.jpg" alt="Maquila industrial Veta Manufacturera" />
+              <div class="photo-placeholder" aria-hidden="true">
+                <svg viewBox="0 0 320 210" role="img">
+                  <rect x="22" y="42" width="276" height="126" rx="16" fill="#171b20" stroke="#d8dee7" stroke-opacity="0.26" />
+                  <rect x="50" y="70" width="92" height="58" rx="9" fill="#8b96a3" opacity="0.78" />
+                  <rect x="166" y="70" width="104" height="58" rx="9" fill="#2a6db0" opacity="0.74" />
+                  <path d="M58 148h204" stroke="#d8dee7" stroke-opacity="0.52" stroke-width="10" stroke-linecap="round" />
+                  <path d="M86 148h46M160 148h72" stroke="#101418" stroke-opacity="0.62" stroke-width="5" stroke-linecap="round" />
+                </svg>
+                <strong>Maquila industrial</strong>
+                <span>Sube foto-12.jpg</span>
+              </div>
+            </div>
+            <figcaption>Maquila industrial. Guarda esta imagen como <code>fotografias/foto-12.jpg</code>.</figcaption>
+          </figure>
+          <figure>
+            <div class="photo-slot">
+              <img class="local-photo" data-srcs="fotografias/foto-13.jpg|public/html/fotografias/foto-13.jpg" alt="Prototipo Veta Manufacturera" />
+              <div class="photo-placeholder" aria-hidden="true">
+                <svg viewBox="0 0 320 210" role="img">
+                  <rect x="22" y="42" width="276" height="126" rx="16" fill="#171b20" stroke="#d8dee7" stroke-opacity="0.26" />
+                  <rect x="50" y="70" width="92" height="58" rx="9" fill="#8b96a3" opacity="0.78" />
+                  <rect x="166" y="70" width="104" height="58" rx="9" fill="#2a6db0" opacity="0.74" />
+                  <path d="M58 148h204" stroke="#d8dee7" stroke-opacity="0.52" stroke-width="10" stroke-linecap="round" />
+                  <path d="M86 148h46M160 148h72" stroke="#101418" stroke-opacity="0.62" stroke-width="5" stroke-linecap="round" />
+                </svg>
+                <strong>Prototipo</strong>
+                <span>Sube foto-13.jpg</span>
+              </div>
+            </div>
+            <figcaption>Prototipo. Guarda esta imagen como <code>fotografias/foto-13.jpg</code>.</figcaption>
+          </figure>
+          <figure>
+            <div class="photo-slot">
+              <img class="local-photo" data-srcs="fotografias/foto-14.jpg|public/html/fotografias/foto-14.jpg" alt="Componente terminado Veta Manufacturera" />
+              <div class="photo-placeholder" aria-hidden="true">
+                <svg viewBox="0 0 320 210" role="img">
+                  <rect x="22" y="42" width="276" height="126" rx="16" fill="#171b20" stroke="#d8dee7" stroke-opacity="0.26" />
+                  <rect x="50" y="70" width="92" height="58" rx="9" fill="#8b96a3" opacity="0.78" />
+                  <rect x="166" y="70" width="104" height="58" rx="9" fill="#2a6db0" opacity="0.74" />
+                  <path d="M58 148h204" stroke="#d8dee7" stroke-opacity="0.52" stroke-width="10" stroke-linecap="round" />
+                  <path d="M86 148h46M160 148h72" stroke="#101418" stroke-opacity="0.62" stroke-width="5" stroke-linecap="round" />
+                </svg>
+                <strong>Componente terminado</strong>
+                <span>Sube foto-14.jpg</span>
+              </div>
+            </div>
+            <figcaption>Componente terminado. Guarda esta imagen como <code>fotografias/foto-14.jpg</code>.</figcaption>
+          </figure>
+          <figure>
+            <div class="photo-slot">
+              <img class="local-photo" data-srcs="fotografias/foto-15.jpg|public/html/fotografias/foto-15.jpg" alt="Proceso técnico Veta Manufacturera" />
+              <div class="photo-placeholder" aria-hidden="true">
+                <svg viewBox="0 0 320 210" role="img">
+                  <rect x="22" y="42" width="276" height="126" rx="16" fill="#171b20" stroke="#d8dee7" stroke-opacity="0.26" />
+                  <rect x="50" y="70" width="92" height="58" rx="9" fill="#8b96a3" opacity="0.78" />
+                  <rect x="166" y="70" width="104" height="58" rx="9" fill="#2a6db0" opacity="0.74" />
+                  <path d="M58 148h204" stroke="#d8dee7" stroke-opacity="0.52" stroke-width="10" stroke-linecap="round" />
+                  <path d="M86 148h46M160 148h72" stroke="#101418" stroke-opacity="0.62" stroke-width="5" stroke-linecap="round" />
+                </svg>
+                <strong>Proceso técnico</strong>
+                <span>Sube foto-15.jpg</span>
+              </div>
+            </div>
+            <figcaption>Proceso técnico. Guarda esta imagen como <code>fotografias/foto-15.jpg</code>.</figcaption>
+          </figure>
+          <figure>
+            <div class="photo-slot">
+              <img class="local-photo" data-srcs="fotografias/foto-16.jpg|public/html/fotografias/foto-16.jpg" alt="Capacidad productiva Veta Manufacturera" />
+              <div class="photo-placeholder" aria-hidden="true">
+                <svg viewBox="0 0 320 210" role="img">
+                  <rect x="22" y="42" width="276" height="126" rx="16" fill="#171b20" stroke="#d8dee7" stroke-opacity="0.26" />
+                  <rect x="50" y="70" width="92" height="58" rx="9" fill="#8b96a3" opacity="0.78" />
+                  <rect x="166" y="70" width="104" height="58" rx="9" fill="#2a6db0" opacity="0.74" />
+                  <path d="M58 148h204" stroke="#d8dee7" stroke-opacity="0.52" stroke-width="10" stroke-linecap="round" />
+                  <path d="M86 148h46M160 148h72" stroke="#101418" stroke-opacity="0.62" stroke-width="5" stroke-linecap="round" />
+                </svg>
+                <strong>Capacidad productiva</strong>
+                <span>Sube foto-16.jpg</span>
+              </div>
+            </div>
+            <figcaption>Capacidad productiva. Guarda esta imagen como <code>fotografias/foto-16.jpg</code>.</figcaption>
+          </figure>
+        </div>
+        <div class="asset-note">
+          <strong>Orden recomendado:</strong> usa el panel privado para acomodar hasta 16 fotografías. El orden visual queda definido por el número del archivo: <code>foto-1.jpg</code>, <code>foto-2.jpg</code>, <code>foto-3.jpg</code> y así sucesivamente hasta <code>foto-16.jpg</code>.
+        </div>
+      </div>
+    </section>
 
     <section id="contacto">
       <div class="container">
