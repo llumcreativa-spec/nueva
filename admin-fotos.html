@@ -17,6 +17,7 @@
       --line: rgba(255, 255, 255, 0.09);
       --danger: #d65f5f;
       --success: #63c27d;
+      --warning: #f3c969;
     }
 
     * { box-sizing: border-box; }
@@ -33,7 +34,7 @@
     }
 
     .container {
-      width: min(1040px, 92%);
+      width: min(1160px, 92%);
       margin: 0 auto;
       padding: 42px 0;
     }
@@ -59,7 +60,7 @@
     .brand {
       display: inline-flex;
       align-items: center;
-      gap: 14px;
+      gap: 16px;
       text-transform: uppercase;
       font-weight: 800;
       letter-spacing: 0.08em;
@@ -68,9 +69,9 @@
     .logo-mark {
       display: inline-grid;
       place-items: center;
-      width: 132px;
-      height: 62px;
-      border-radius: 12px;
+      width: 220px;
+      height: 100px;
+      border-radius: 16px;
       background: linear-gradient(135deg, #2a6db0, #7b8794);
       border: 1px solid rgba(255, 255, 255, 0.22);
       overflow: hidden;
@@ -86,8 +87,8 @@
     }
 
     .logo-mark svg {
-      width: 38px;
-      height: 38px;
+      width: 48px;
+      height: 48px;
     }
 
     .logo-fallback { display: none; }
@@ -140,16 +141,26 @@
       cursor: pointer;
     }
 
-    button {
+    button,
+    .file-action {
       border: 0;
       padding: 13px 18px;
       background: var(--accent);
       color: #fff;
       font-weight: 800;
       cursor: pointer;
+      text-align: center;
     }
 
-    button:hover { background: var(--accent-light); }
+    button:hover,
+    .file-action:hover { background: var(--accent-light); }
+
+    button.secondary {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+    }
+
+    button.danger-button { background: rgba(214, 95, 95, 0.8); }
 
     .login-card {
       max-width: 520px;
@@ -172,7 +183,7 @@
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 22px;
     }
 
@@ -183,20 +194,129 @@
       padding: 22px;
     }
 
-    .preview-grid {
+    .upload-box.wide { grid-column: 1 / -1; }
+
+    .step-list {
       display: grid;
       gap: 12px;
-      grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));
-      margin-top: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      list-style: none;
+      margin: 20px 0 0;
+      padding: 0;
     }
 
-    .preview-grid img {
+    .step-list li {
+      background: rgba(255, 255, 255, 0.045);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 14px;
+      color: var(--muted);
+    }
+
+    .step-list strong { display: block; color: #fff; }
+
+    .drop-zone {
+      border: 2px dashed rgba(255, 255, 255, 0.22);
+      border-radius: 16px;
+      background: rgba(16, 20, 24, 0.72);
+      padding: 24px;
+      text-align: center;
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .drop-zone.is-dragover {
+      border-color: var(--accent-light);
+      background: rgba(63, 141, 214, 0.14);
+    }
+
+    .drop-zone input { margin-bottom: 0; }
+
+    .logo-preview-large {
+      display: grid;
+      place-items: center;
+      min-height: 190px;
+      margin-top: 16px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: #fff;
+      overflow: hidden;
+      padding: 16px;
+    }
+
+    .logo-preview-large img {
+      width: min(100%, 520px);
+      max-height: 180px;
+      object-fit: contain;
+    }
+
+    .empty-state {
+      color: var(--muted);
+      border: 1px dashed rgba(255, 255, 255, 0.18);
+      border-radius: 12px;
+      padding: 18px;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.035);
+    }
+
+    .organizer-toolbar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 12px;
+      margin: 16px 0;
+    }
+
+    .photo-organizer {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    }
+
+    .photo-card {
+      background: #101418;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+      cursor: grab;
+    }
+
+    .photo-card.is-dragging { opacity: 0.55; }
+
+    .photo-card img {
       width: 100%;
       aspect-ratio: 4 / 3;
       object-fit: cover;
-      border-radius: 10px;
-      border: 1px solid var(--line);
-      background: #101418;
+      display: block;
+      background: #0c0e11;
+    }
+
+    .photo-card-body { padding: 14px; }
+
+    .slot-name {
+      display: inline-block;
+      color: #101418;
+      background: var(--warning);
+      font-weight: 900;
+      padding: 4px 8px;
+      border-radius: 999px;
+      margin-bottom: 8px;
+    }
+
+    .photo-card small {
+      display: block;
+      color: var(--muted);
+      word-break: break-all;
+    }
+
+    .card-actions {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .card-actions button {
+      padding: 9px;
+      font-size: 0.84rem;
     }
 
     .path-list {
@@ -226,6 +346,12 @@
 
     .success { color: var(--success); font-weight: 800; }
     .danger { color: var(--danger); font-weight: 800; }
+
+    @media (max-width: 720px) {
+      .logo-mark { width: 170px; height: 78px; }
+      .admin-header { align-items: flex-start; }
+      .card-actions { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -253,41 +379,61 @@
           </span>
           <span>Veta Manufacturera</span>
         </div>
-        <p class="status"><span class="success">Panel privado activo</span> · No enlazado desde la página pública</p>
+        <p class="status"><span class="success">Panel privado activo</span> · Organizador de logotipo y fotografías</p>
       </header>
 
       <section class="panel">
-        <h1>Subir fotografías y logotipo</h1>
-        <p>Usa este panel como acceso separado para seleccionar y revisar imágenes. Después, guarda los archivos en el hosting exactamente en las rutas indicadas para que el sitio público los cargue.</p>
+        <h1>Subir, ordenar y preparar imágenes</h1>
+        <p>Selecciona el logotipo y tus fotografías, acomódalas en el orden correcto y descarga cada archivo con el nombre que debe subirse al hosting.</p>
+        <ul class="step-list" aria-label="Pasos para preparar imágenes">
+          <li><strong>1. Carga el logotipo</strong> Usa un archivo JPG y verifica que se vea grande y completo.</li>
+          <li><strong>2. Carga fotografías</strong> Arrastra o selecciona imágenes de procesos, moldes, fibra y piezas.</li>
+          <li><strong>3. Acomoda el orden</strong> Usa subir, bajar o arrastrar las tarjetas.</li>
+          <li><strong>4. Sube al hosting</strong> Guarda los archivos con los nombres indicados en <code>public/html</code>.</li>
+        </ul>
         <div class="notice">
-          <p><strong>Importante:</strong> una página HTML estática no puede guardar archivos por sí sola en el servidor. Para una carga real con botón “Subir”, el hosting debe tener un backend privado, FTP, cPanel, administrador de archivos o protección por contraseña del servidor.</p>
+          <p><strong>Importante:</strong> esta página HTML estática ayuda a preparar, previsualizar y renombrar archivos. Para una carga real al servidor, usa el administrador de archivos del hosting, cPanel o FTP.</p>
         </div>
       </section>
 
       <section class="grid">
         <article class="upload-box">
-          <h2>1. Logotipo</h2>
-          <p>Selecciona el archivo <code>LOGOTIPO.jpg</code> para previsualizarlo antes de colocarlo en el hosting.</p>
-          <label for="logoUpload">Seleccionar logotipo</label>
-          <input id="logoUpload" type="file" accept="image/*" />
-          <div id="logoPreview" class="preview-grid" aria-live="polite"></div>
+          <h2>1. Logotipo grande</h2>
+          <p>Selecciona el logotipo oficial. En la página pública se mostrará más grande en el encabezado.</p>
+          <label for="logoUpload">Seleccionar logotipo JPG</label>
+          <input id="logoUpload" type="file" accept=".jpg,.jpeg,image/jpeg" />
+          <div id="logoPreview" class="logo-preview-large" aria-live="polite">
+            <p class="empty-state">Aún no has seleccionado el logotipo. Debe guardarse como <code>LOGOTIPO.jpg</code>.</p>
+          </div>
+          <button id="downloadLogo" type="button" class="secondary">Descargar como LOGOTIPO.jpg</button>
         </article>
 
-        <article class="upload-box">
-          <h2>2. Fotografías</h2>
-          <p>Selecciona fotografías de procesos, moldes, piezas terminadas o instalaciones para revisar cómo se verán.</p>
-          <label for="photoUpload">Seleccionar fotografías</label>
-          <input id="photoUpload" type="file" accept="image/*" multiple />
-          <div id="photoPreview" class="preview-grid" aria-live="polite"></div>
+        <article class="upload-box wide">
+          <h2>2. Fotografías de la galería</h2>
+          <p>Selecciona o arrastra fotografías JPG. Después acomódalas; el orden de las tarjetas será el orden de la página pública.</p>
+          <div id="photoDropZone" class="drop-zone">
+            <label for="photoUpload">Arrastra fotos aquí o selecciónalas</label>
+            <input id="photoUpload" type="file" accept=".jpg,.jpeg,image/jpeg" multiple />
+          </div>
+          <div class="organizer-toolbar">
+            <button id="downloadPhotos" type="button">Descargar fotos con nombres correctos</button>
+            <button id="clearPhotos" type="button" class="secondary">Limpiar fotografías</button>
+          </div>
+          <div id="photoOrganizer" class="photo-organizer" aria-live="polite">
+            <p class="empty-state">Aún no has seleccionado fotografías. Se usarán hasta 4 espacios: <code>foto-1.jpg</code>, <code>foto-2.jpg</code>, <code>foto-3.jpg</code> y <code>foto-4.jpg</code>.</p>
+          </div>
         </article>
       </section>
 
       <section class="panel">
         <h2>¿Dónde guardar los archivos?</h2>
-        <p>Sube los archivos al hosting usando estas rutas locales. No dependas de imágenes de internet. Respeta mayúsculas, minúsculas y extensiones.</p>
+        <p>Cuando termines de acomodar las imágenes, sube los archivos al hosting usando estas rutas locales. No dependas de imágenes de internet. Respeta mayúsculas, minúsculas y extensiones.</p>
         <ul class="path-list">
           <li><strong>Logotipo oficial:</strong> <code>public/html/LOGOTIPO.jpg</code></li>
-          <li><strong>Fotos de procesos:</strong> <code>public/html/fotografias/foto-1.jpg</code>, <code>foto-2.jpg</code>, <code>foto-3.jpg</code>, <code>foto-4.jpg</code></li>
+          <li><strong>Foto 1 de la galería:</strong> <code>public/html/fotografias/foto-1.jpg</code></li>
+          <li><strong>Foto 2 de la galería:</strong> <code>public/html/fotografias/foto-2.jpg</code></li>
+          <li><strong>Foto 3 de la galería:</strong> <code>public/html/fotografias/foto-3.jpg</code></li>
+          <li><strong>Foto 4 de la galería:</strong> <code>public/html/fotografias/foto-4.jpg</code></li>
         </ul>
         <p><span class="danger">Nota:</span> si el archivo <code>index.html</code> está dentro de <code>public/html</code>, el sitio cargará el logotipo con <code>LOGOTIPO.jpg</code> y las fotos con <code>fotografias/foto-1.jpg</code>, <code>foto-2.jpg</code>, <code>foto-3.jpg</code> y <code>foto-4.jpg</code>.</p>
       </section>
@@ -323,25 +469,169 @@
       accessCode.focus();
     });
 
-    function renderPreviews(input, target) {
-      target.innerHTML = '';
-      Array.from(input.files).forEach((file) => {
-        if (!file.type.startsWith('image/')) return;
+    const logoUpload = document.getElementById('logoUpload');
+    const logoPreview = document.getElementById('logoPreview');
+    const downloadLogo = document.getElementById('downloadLogo');
+    const photoUpload = document.getElementById('photoUpload');
+    const photoDropZone = document.getElementById('photoDropZone');
+    const photoOrganizer = document.getElementById('photoOrganizer');
+    const downloadPhotos = document.getElementById('downloadPhotos');
+    const clearPhotos = document.getElementById('clearPhotos');
+    let logoFile = null;
+    let photoFiles = [];
+    let draggedIndex = null;
+
+    function downloadFile(file, filename) {
+      const url = URL.createObjectURL(file);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = filename;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 500);
+    }
+
+    function renderLogoPreview() {
+      logoPreview.innerHTML = '';
+      if (!logoFile) {
+        logoPreview.innerHTML = '<p class="empty-state">Aún no has seleccionado el logotipo. Debe guardarse como <code>LOGOTIPO.jpg</code>.</p>';
+        return;
+      }
+      const image = document.createElement('img');
+      image.alt = `Vista previa grande de ${logoFile.name}`;
+      image.src = URL.createObjectURL(logoFile);
+      image.onload = () => URL.revokeObjectURL(image.src);
+      logoPreview.appendChild(image);
+    }
+
+    function addPhotos(files) {
+      Array.from(files).forEach((file) => {
+        const isJpeg = file.type === 'image/jpeg' || /\.jpe?g$/i.test(file.name);
+        if (!isJpeg) return;
+        photoFiles.push(file);
+      });
+      photoFiles = photoFiles.slice(0, 4);
+      renderPhotoOrganizer();
+    }
+
+    function movePhoto(fromIndex, toIndex) {
+      if (toIndex < 0 || toIndex >= photoFiles.length) return;
+      const item = photoFiles.splice(fromIndex, 1)[0];
+      photoFiles.splice(toIndex, 0, item);
+      renderPhotoOrganizer();
+    }
+
+    function renderPhotoOrganizer() {
+      photoOrganizer.innerHTML = '';
+      if (!photoFiles.length) {
+        photoOrganizer.innerHTML = '<p class="empty-state">Aún no has seleccionado fotografías. Se usarán hasta 4 espacios: <code>foto-1.jpg</code>, <code>foto-2.jpg</code>, <code>foto-3.jpg</code> y <code>foto-4.jpg</code>.</p>';
+        return;
+      }
+
+      photoFiles.forEach((file, index) => {
+        const card = document.createElement('article');
+        card.className = 'photo-card';
+        card.draggable = true;
+        card.dataset.index = index;
+
         const image = document.createElement('img');
-        image.alt = `Vista previa de ${file.name}`;
+        image.alt = `Vista previa ${index + 1}: ${file.name}`;
         image.src = URL.createObjectURL(file);
         image.onload = () => URL.revokeObjectURL(image.src);
-        target.appendChild(image);
+
+        const body = document.createElement('div');
+        body.className = 'photo-card-body';
+        body.innerHTML = `
+          <span class="slot-name">Se sube como foto-${index + 1}.jpg</span>
+          <small>Archivo seleccionado: ${file.name}</small>
+          <small>Ruta final: public/html/fotografias/foto-${index + 1}.jpg</small>
+        `;
+
+        const actions = document.createElement('div');
+        actions.className = 'card-actions';
+
+        const up = document.createElement('button');
+        up.type = 'button';
+        up.className = 'secondary';
+        up.textContent = 'Subir';
+        up.disabled = index === 0;
+        up.addEventListener('click', () => movePhoto(index, index - 1));
+
+        const down = document.createElement('button');
+        down.type = 'button';
+        down.className = 'secondary';
+        down.textContent = 'Bajar';
+        down.disabled = index === photoFiles.length - 1;
+        down.addEventListener('click', () => movePhoto(index, index + 1));
+
+        const remove = document.createElement('button');
+        remove.type = 'button';
+        remove.className = 'danger-button';
+        remove.textContent = 'Quitar';
+        remove.addEventListener('click', () => {
+          photoFiles.splice(index, 1);
+          renderPhotoOrganizer();
+        });
+
+        actions.append(up, down, remove);
+        body.appendChild(actions);
+        card.append(image, body);
+
+        card.addEventListener('dragstart', () => {
+          draggedIndex = index;
+          card.classList.add('is-dragging');
+        });
+        card.addEventListener('dragend', () => card.classList.remove('is-dragging'));
+        card.addEventListener('dragover', (event) => event.preventDefault());
+        card.addEventListener('drop', (event) => {
+          event.preventDefault();
+          if (draggedIndex === null || draggedIndex === index) return;
+          movePhoto(draggedIndex, index);
+          draggedIndex = null;
+        });
+
+        photoOrganizer.appendChild(card);
       });
     }
 
-    const logoUpload = document.getElementById('logoUpload');
-    const logoPreview = document.getElementById('logoPreview');
-    const photoUpload = document.getElementById('photoUpload');
-    const photoPreview = document.getElementById('photoPreview');
+    logoUpload.addEventListener('change', () => {
+      logoFile = logoUpload.files[0] || null;
+      renderLogoPreview();
+    });
 
-    logoUpload.addEventListener('change', () => renderPreviews(logoUpload, logoPreview));
-    photoUpload.addEventListener('change', () => renderPreviews(photoUpload, photoPreview));
+    downloadLogo.addEventListener('click', () => {
+      if (!logoFile) return;
+      downloadFile(logoFile, 'LOGOTIPO.jpg');
+    });
+
+    photoUpload.addEventListener('change', () => addPhotos(photoUpload.files));
+
+    ['dragenter', 'dragover'].forEach((eventName) => {
+      photoDropZone.addEventListener(eventName, (event) => {
+        event.preventDefault();
+        photoDropZone.classList.add('is-dragover');
+      });
+    });
+
+    ['dragleave', 'drop'].forEach((eventName) => {
+      photoDropZone.addEventListener(eventName, (event) => {
+        event.preventDefault();
+        photoDropZone.classList.remove('is-dragover');
+      });
+    });
+
+    photoDropZone.addEventListener('drop', (event) => addPhotos(event.dataTransfer.files));
+
+    downloadPhotos.addEventListener('click', () => {
+      photoFiles.forEach((file, index) => downloadFile(file, `foto-${index + 1}.jpg`));
+    });
+
+    clearPhotos.addEventListener('click', () => {
+      photoFiles = [];
+      photoUpload.value = '';
+      renderPhotoOrganizer();
+    });
   </script>
 </body>
 </html>
