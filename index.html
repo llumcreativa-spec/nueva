@@ -66,7 +66,7 @@
       background: rgba(15, 17, 20, 0.94);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--line);
-      padding: 14px 0;
+      padding: 18px 0;
     }
 
     .brand {
@@ -81,12 +81,12 @@
     .logo-mark {
       display: inline-grid;
       place-items: center;
-      width: 184px;
-      height: 82px;
-      border-radius: 10px;
-      background: linear-gradient(135deg, #2a6db0, #7b8794);
-      border: 1px solid rgba(255, 255, 255, 0.22);
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
+      width: clamp(260px, 24vw, 360px);
+      height: 124px;
+      border-radius: 14px;
+      background: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.32);
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.34);
       overflow: hidden;
       flex: 0 0 auto;
     }
@@ -97,6 +97,11 @@
       width: 100%;
       height: 100%;
       object-fit: contain;
+    }
+
+    .logo-mark img {
+      transform: scale(1.72);
+      transform-origin: center;
     }
 
     .logo-mark svg {
@@ -120,6 +125,10 @@
       font-size: 0.64rem;
       font-weight: 700;
       letter-spacing: 0.14em;
+    }
+
+    @media (min-width: 1180px) {
+      .brand-text { display: none; }
     }
 
     .nav-links {
@@ -524,7 +533,8 @@
       .hero,
       .split,
       .contact-wrapper { grid-template-columns: 1fr; }
-      .logo-mark { width: 148px; height: 66px; }
+      .logo-mark { width: min(78vw, 260px); height: 104px; }
+      .logo-mark img { transform: scale(1.62); }
       .hero-card { order: -1; }
       .metrics { grid-template-columns: 1fr; }
       section { padding: 56px 0; }

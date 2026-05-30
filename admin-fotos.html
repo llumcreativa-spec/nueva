@@ -69,11 +69,11 @@
     .logo-mark {
       display: inline-grid;
       place-items: center;
-      width: 220px;
-      height: 100px;
-      border-radius: 16px;
-      background: linear-gradient(135deg, #2a6db0, #7b8794);
-      border: 1px solid rgba(255, 255, 255, 0.22);
+      width: clamp(280px, 30vw, 420px);
+      height: 148px;
+      border-radius: 18px;
+      background: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.32);
       overflow: hidden;
       flex: 0 0 auto;
     }
@@ -84,6 +84,11 @@
       width: 100%;
       height: 100%;
       object-fit: contain;
+    }
+
+    .logo-mark img {
+      transform: scale(1.72);
+      transform-origin: center;
     }
 
     .logo-mark svg {
@@ -234,19 +239,21 @@
     .logo-preview-large {
       display: grid;
       place-items: center;
-      min-height: 190px;
+      min-height: 280px;
       margin-top: 16px;
       border-radius: 16px;
       border: 1px solid var(--line);
       background: #fff;
       overflow: hidden;
-      padding: 16px;
+      padding: 8px;
     }
 
     .logo-preview-large img {
-      width: min(100%, 520px);
-      max-height: 180px;
+      width: min(100%, 760px);
+      max-height: 270px;
       object-fit: contain;
+      transform: scale(1.45);
+      transform-origin: center;
     }
 
     .empty-state {
@@ -348,7 +355,8 @@
     .danger { color: var(--danger); font-weight: 800; }
 
     @media (max-width: 720px) {
-      .logo-mark { width: 170px; height: 78px; }
+      .logo-mark { width: min(84vw, 300px); height: 120px; }
+      .logo-mark img { transform: scale(1.62); }
       .admin-header { align-items: flex-start; }
       .card-actions { grid-template-columns: 1fr; }
     }
