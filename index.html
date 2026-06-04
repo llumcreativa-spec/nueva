@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Veta Manufacturera, empresa mexicana con 30 años de experiencia en termoformado, fabricación en fibra de vidrio, maquila industrial y piezas industriales a la medida en México." />
+  <title>Veta Manufacturera | Termoformado y Fibra de Vidrio en México</title>
+  <style>
+    :root {
+      --bg: #0f1114;
+      --surface: #171b20;
+      --surface-light: #212833;
+      --panel: #f4f7fb;
+      --panel-text: #18202a;
+      --text: #e5e9f0;
+      --muted: #b4bdc7;
+      --accent: #2a6db0;
+      --accent-light: #3f8dd6;
+      --metal: #7b8794;
+      --cta: #1f5a96;
+      --line: rgba(255, 255, 255, 0.09);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    img { max-width: 100%; }
+
+    .container {
+      width: min(1160px, 90%);
+      margin: 0 auto;
+    }
+
+    .topbar {
+      background: #0a0c0f;
+      border-bottom: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.9rem;
+      padding: 10px 0;
+    }
+
+    .topbar .container,
+    nav .container {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(15, 17, 20, 0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+      padding: 18px 0;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .logo-mark {
+      display: inline-grid;
+      place-items: center;
+      width: clamp(260px, 24vw, 360px);
+      height: 124px;
+      border-radius: 14px;
+      background: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.32);
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.34);
+      overflow: hidden;
+      flex: 0 0 auto;
+    }
+
+    .logo-mark img,
+    .logo-mark svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .logo-mark img {
+      transform: scale(1.72);
+      transform-origin: center;
+    }
+
+    .logo-mark svg {
+      width: 38px;
+      height: 38px;
+    }
+
+    .logo-fallback {
+      display: none;
+    }
+
+    .brand-text {
+      min-width: 0;
+      display: grid;
+      gap: 1px;
+      line-height: 1.05;
+    }
+
+    .brand-text small {
+      color: var(--muted);
+      font-size: 0.64rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+    }
+
+    @media (min-width: 1180px) {
+      .brand-text { display: none; }
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a:hover { color: var(--accent-light); }
+
+    header {
+      background:
+        linear-gradient(135deg, rgba(15, 17, 20, 0.9), rgba(23, 27, 32, 0.92)),
+        radial-gradient(circle at top right, rgba(63, 141, 214, 0.28), transparent 55%);
+      padding: 72px 0 58px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero {
+      display: grid;
+      gap: 36px;
+      align-items: center;
+      grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+    }
+
+    .eyebrow {
+      color: var(--accent-light);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.82rem;
+      margin: 0 0 12px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 4vw, 4.25rem);
+      line-height: 1.08;
+      margin: 0 0 18px;
+    }
+
+    .hero p { margin: 0 0 20px; color: var(--muted); }
+
+    .cta-row { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+
+    .cta,
+    .secondary-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 6px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .cta { background: var(--cta); color: #fff; }
+    .secondary-cta { border: 1px solid var(--line); color: var(--text); }
+    .cta:hover,
+    .secondary-cta:hover { transform: translateY(-2px); background: var(--accent-light); }
+
+    .hero-card {
+      background: var(--surface);
+      padding: 22px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.38);
+    }
+
+    .hero-card img {
+      display: block;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      margin-bottom: 18px;
+    }
+
+    .metrics {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(3, 1fr);
+      margin-top: 22px;
+    }
+
+    .metric {
+      background: rgba(255, 255, 255, 0.045);
+      border: 1px solid var(--line);
+      padding: 14px;
+      border-radius: 10px;
+    }
+
+    .metric strong { display: block; font-size: 1.45rem; color: #fff; }
+    .metric span { color: var(--muted); font-size: 0.88rem; }
+
+    section { padding: 72px 0; }
+
+    header,
+    section {
+      scroll-margin-top: 180px;
+    }
+
+    section h2 {
+      font-size: clamp(1.7rem, 2.8vw, 2.65rem);
+      line-height: 1.15;
+      margin: 0 0 16px;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      margin: 0 0 30px;
+      max-width: 820px;
+    }
+
+    .light-section {
+      background: var(--panel);
+      color: var(--panel-text);
+    }
+
+    .light-section .subtitle,
+    .light-section p { color: #4e5b69; }
+
+    .split {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+      gap: 34px;
+      align-items: center;
+    }
+
+    .history-card,
+    .process-card,
+    .service-card,
+    .contact-info,
+    form {
+      background: var(--surface);
+      padding: 26px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+    }
+
+    .light-section .history-card,
+    .light-section .process-card {
+      background: #fff;
+      border: 1px solid #dce4ee;
+      box-shadow: 0 12px 28px rgba(23, 34, 48, 0.08);
+    }
+
+    .history-card h3,
+    .process-card h3,
+    .service-card h3 { margin-top: 0; color: var(--accent-light); }
+    .light-section .history-card h3,
+    .light-section .process-card h3 { color: var(--accent); }
+
+    .feature-list {
+      display: grid;
+      gap: 10px;
+      padding: 0;
+      margin: 20px 0 0;
+      list-style: none;
+    }
+
+    .feature-list li {
+      position: relative;
+      padding-left: 24px;
+    }
+
+    .feature-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.68em;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent-light);
+      box-shadow: 0 0 0 4px rgba(63, 141, 214, 0.14);
+    }
+
+    .process-grid,
+    .services {
+      display: grid;
+      gap: 22px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+
+    .process-card img,
+    .service-image {
+      display: block;
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid rgba(122, 135, 148, 0.3);
+      margin-bottom: 18px;
+      background: #101418;
+    }
+
+    .steps {
+      counter-reset: step;
+      list-style: none;
+      padding: 0;
+      margin: 18px 0 0;
+      display: grid;
+      gap: 12px;
+    }
+
+    .steps li {
+      counter-increment: step;
+      display: grid;
+      grid-template-columns: 38px 1fr;
+      gap: 12px;
+      align-items: start;
+      color: inherit;
+    }
+
+    .steps li::before {
+      content: counter(step);
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 800;
+    }
+
+    .service-card h2 {
+      font-size: 1.35rem;
+      margin: 0 0 12px;
+      color: var(--accent-light);
+    }
+
+    .gallery {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
+    }
+
+    .gallery.expanded-gallery {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 22px;
+    }
+
+    .expanded-gallery .photo-slot {
+      min-height: 270px;
+    }
+
+    .gallery figure {
+      margin: 0;
+      background: var(--surface-light);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+    }
+
+    .photo-slot {
+      position: relative;
+      display: grid;
+      place-items: center;
+      min-height: 230px;
+      aspect-ratio: 4 / 3;
+      background: linear-gradient(135deg, #101418, #1b2330 56%, #0c0e11);
+      overflow: hidden;
+    }
+
+    .photo-slot::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+      background-size: 42px 42px;
+      opacity: 0.75;
+    }
+
+    .photo-slot img {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    .photo-slot img.is-loaded { opacity: 1; }
+
+    .photo-placeholder {
+      position: relative;
+      z-index: 1;
+      width: min(78%, 260px);
+      text-align: center;
+      color: #d8dee7;
+    }
+
+    .photo-placeholder svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin-bottom: 14px;
+      opacity: 0.92;
+    }
+
+    .photo-placeholder strong {
+      display: block;
+      color: #fff;
+      font-size: 1.05rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .photo-placeholder span {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    .gallery figcaption {
+      padding: 14px 16px;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+
+    .gallery-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: 18px 0 0;
+    }
+
+
+    .contact-wrapper {
+      display: grid;
+      gap: 28px;
+      grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+    }
+
+    form { display: grid; gap: 14px; }
+
+    label {
+      font-weight: 700;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 11px 12px;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: #101418;
+      color: var(--text);
+      font-size: 0.95rem;
+      margin-top: 6px;
+    }
+
+    textarea { min-height: 130px; resize: vertical; }
+
+    button {
+      border: none;
+      background: var(--accent);
+      color: #fff;
+      padding: 13px;
+      border-radius: 6px;
+      font-weight: 800;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    button:hover { background: var(--accent-light); }
+
+    .contact-info { background: var(--surface-light); }
+    .contact-info p { margin: 0 0 12px; color: var(--muted); }
+
+    .social-links {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: #dce8f8;
+      font-weight: 800;
+    }
+
+    .social-links a:hover { color: var(--accent-light); }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .floating-whatsapp {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 20;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 0 18px;
+      border-radius: 999px;
+      background: #25d366;
+      color: #06140b;
+      font-weight: 900;
+      box-shadow: 0 16px 34px rgba(0, 0, 0, 0.34);
+    }
+
+    .floating-whatsapp:hover {
+      transform: translateY(-2px);
+      background: #39e27a;
+    }
+
+    footer {
+      background: #0c0e11;
+      padding: 26px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    footer p { margin: 0; color: var(--metal); font-size: 0.9rem; }
+
+
+
+
+    @media (max-width: 860px) {
+      .hero,
+      .split,
+      .contact-wrapper { grid-template-columns: 1fr; }
+      .logo-mark { width: min(78vw, 260px); height: 104px; }
+      .logo-mark img { transform: scale(1.62); }
+      .hero-card { order: -1; }
+      .metrics { grid-template-columns: 1fr; }
+      section { padding: 56px 0; }
+      header,
+      section { scroll-margin-top: 160px; }
+      .floating-whatsapp { right: 14px; bottom: 14px; min-height: 48px; padding: 0 15px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="container">
+      <span>Empresa mexicana con 30 años en el mercado industrial</span>
+      <span>Tel. <a href="tel:+525554569037">55 5456 9037</a> / <a href="tel:+525557354634">55 5735 4634</a></span>
+      <span class="social-links"><a href="https://www.facebook.com/vetamanufacturera/" target="_blank" rel="noopener">Facebook</a></span>
+    </div>
+  </div>
+
+  <nav aria-label="Navegación principal">
+    <div class="container">
+      <a class="brand" href="#inicio" aria-label="Veta Manufacturera - inicio">
+        <span class="logo-mark" aria-hidden="true">
+          <img src="LOGOTIPO.jpg" alt="" onerror="this.onerror=function(){this.style.display='none'; this.nextElementSibling.style.display='block';}; this.src='public/html/LOGOTIPO.jpg';" />
+          <svg class="logo-fallback" viewBox="0 0 64 64" role="img" aria-label="Logotipo provisional Veta Manufacturera">
+            <path d="M8 12h15l9 28 9-28h15L39 54H25L8 12Z" fill="#ffffff"/>
+            <path d="M32 40 23 12h18L32 40Z" fill="#d8dee7" opacity="0.72"/>
+          </svg>
+        </span>
+        <span class="brand-text">
+          <span>Veta Manufacturera</span>
+          <small>30 años en México</small>
+        </span>
+      </a>
+      <div class="nav-links">
+        <a href="#historia">Historia</a>
+        <a href="#termoformado">Termoformado</a>
+        <a href="#fibra">Fibra de vidrio</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#galeria">Galería</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+    </div>
+  </nav>
+
+  <header id="inicio">
+    <div class="container hero">
+      <div>
+        <p class="eyebrow">Termoformado · Fibra de vidrio · Maquila industrial México</p>
+        <h1>Diseño y fabricación de piezas en termoformado y fibra de vidrio en México</h1>
+        <p>Desarrollamos y fabricamos piezas industriales a la medida, acompañando tu proyecto desde la idea hasta el producto final con soporte técnico, procesos controlados y visión B2B.</p>
+        <div class="cta-row">
+          <a class="cta" href="#contacto">Cotiza tu proyecto</a>
+          <a class="secondary-cta" href="#termoformado">Conoce los procesos</a>
+        </div>
+        <div class="metrics" aria-label="Indicadores de experiencia">
+          <div class="metric"><strong>30+</strong><span>años en el mercado</span></div>
+          <div class="metric"><strong>B2B</strong><span>enfoque industrial</span></div>
+          <div class="metric"><strong>México</strong><span>atención nacional</span></div>
+        </div>
+      </div>
+      <div class="hero-card">
+        <img alt="Operación industrial de fabricación de piezas termoformadas y fibra de vidrio" src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22900%22%20height=%22620%22%20viewBox=%220%200%20900%20620%22%20role=%22img%22%20aria-labelledby=%22title%20desc%22%3E%0A%20%20%3Ctitle%3EOperaci%C3%B3n%20industrial%3C/title%3E%0A%20%20%3Cdesc%3EIlustraci%C3%B3n%20industrial%20de%20Operaci%C3%B3n%20industrial%20para%20Veta%20Manufacturera.%3C/desc%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id=%22bg%22%20x1=%220%22%20y1=%220%22%20x2=%221%22%20y2=%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset=%220%22%20stop-color=%22%23101418%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset=%220.55%22%20stop-color=%22%231b2330%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset=%221%22%20stop-color=%22%230c0e11%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%20%20%3ClinearGradient%20id=%22metal%22%20x1=%220%22%20y1=%220%22%20x2=%221%22%20y2=%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset=%220%22%20stop-color=%22%23c5ccd6%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset=%220.5%22%20stop-color=%22%23737f8d%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset=%221%22%20stop-color=%22%23d8dee7%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%20%20%3Cpattern%20id=%22grid%22%20width=%2242%22%20height=%2242%22%20patternUnits=%22userSpaceOnUse%22%3E%0A%20%20%20%20%20%20%3Cpath%20d=%22M42%200H0V42%22%20fill=%22none%22%20stroke=%22%23ffffff%22%20stroke-opacity=%220.055%22%20stroke-width=%221%22/%3E%0A%20%20%20%20%3C/pattern%3E%0A%20%20%20%20%3Cfilter%20id=%22shadow%22%20x=%22-20%%22%20y=%22-20%%22%20width=%22140%%22%20height=%22140%%22%3E%0A%20%20%20%20%20%20%3CfeDropShadow%20dx=%220%22%20dy=%2216%22%20stdDeviation=%2214%22%20flood-color=%22%23000%22%20flood-opacity=%220.35%22/%3E%0A%20%20%20%20%3C/filter%3E%0A%20%20%3C/defs%3E%0A%20%20%3Crect%20width=%22900%22%20height=%22620%22%20fill=%22url(%23bg)%22/%3E%0A%20%20%3Crect%20width=%22900%22%20height=%22620%22%20fill=%22url(%23grid)%22/%3E%0A%20%20%3Ccircle%20cx=%22760%22%20cy=%22100%22%20r=%22180%22%20fill=%22%232a6db0%22%20opacity=%220.18%22/%3E%0A%20%20%3Ccircle%20cx=%22120%22%20cy=%22520%22%20r=%22150%22%20fill=%22%232a6db0%22%20opacity=%220.14%22/%3E%0A%20%20%3Cg%20filter=%22url(%23shadow)%22%3E%0A%20%20%20%20%3Crect%20x=%22120%22%20y=%22120%22%20width=%22660%22%20height=%22360%22%20rx=%2228%22%20fill=%22%23171b20%22%20stroke=%22%23ffffff%22%20stroke-opacity=%220.12%22/%3E%0A%20%20%20%20%3Crect%20x=%22160%22%20y=%22170%22%20width=%22290%22%20height=%22190%22%20rx=%2214%22%20fill=%22url(%23metal)%22%20opacity=%220.82%22/%3E%0A%20%20%20%20%3Crect%20x=%22485%22%20y=%22170%22%20width=%22230%22%20height=%22190%22%20rx=%2214%22%20fill=%22%232a6db0%22%20opacity=%220.72%22/%3E%0A%20%20%20%20%3Cpath%20d=%22M190%20405H710%22%20stroke=%22%23dce4ee%22%20stroke-opacity=%220.55%22%20stroke-width=%2218%22%20stroke-linecap=%22round%22/%3E%0A%20%20%20%20%3Cpath%20d=%22M210%20405H360M430%20405H580M630%20405H690%22%20stroke=%22%23101418%22%20stroke-opacity=%220.55%22%20stroke-width=%228%22%20stroke-linecap=%22round%22/%3E%0A%20%20%20%20%3Cg%20stroke=%22%23ffffff%22%20stroke-opacity=%220.35%22%20stroke-width=%2210%22%20fill=%22none%22%20stroke-linecap=%22round%22%3E%0A%20%20%20%20%20%20%3Cpath%20d=%22M220%20250h170%22/%3E%0A%20%20%20%20%20%20%3Cpath%20d=%22M535%20250h130%22/%3E%0A%20%20%20%20%20%20%3Cpath%20d=%22M535%20295h100%22/%3E%0A%20%20%20%20%3C/g%3E%0A%20%20%20%20%3Cpath%20d=%22M505%20360c60-70%20130-70%20190%200%22%20fill=%22none%22%20stroke=%22%23ffffff%22%20stroke-opacity=%220.45%22%20stroke-width=%2216%22%20stroke-linecap=%22round%22/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x=%22450%22%20y=%22535%22%20fill=%22%23e5e9f0%22%20font-family=%22Segoe%20UI,%20Arial,%20sans-serif%22%20font-size=%2234%22%20font-weight=%22800%22%20text-anchor=%22middle%22%3EM%C3%81QUINA%20CNC%3C/text%3E%0A%20%20%3Ctext%20x=%22450%22%20y=%22574%22%20fill=%22%23b4bdc7%22%20font-family=%22Segoe%20UI,%20Arial,%20sans-serif%22%20font-size=%2222%22%20font-weight=%22600%22%20text-anchor=%22middle%22%3ETERMOFORMADO%20+%20FIBRA%3C/text%3E%0A%3C/svg%3E%0A" />
+        <h2>Quiénes somos</h2>
+        <p>Veta Manufacturera es una empresa mexicana especializada en diseño, fabricación y maquila de piezas en termoformado y fibra de vidrio, adaptándose a las necesidades técnicas, funcionales y presupuestales de cada cliente.</p>
+        <p><strong>Mensaje clave:</strong> somos el aliado industrial que convierte ideas en piezas funcionales, listas para integrarse a procesos productivos.</p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="historia" class="light-section">
+      <div class="container split">
+        <div>
+          <p class="eyebrow">Nuestra trayectoria</p>
+          <h2>Historia de Veta Manufacturera: 30 años desarrollando soluciones industriales en México</h2>
+          <p class="subtitle">Durante tres décadas hemos acompañado a PYMES y grandes empresas en el desarrollo de piezas plásticas termoformadas, componentes en fibra de vidrio y proyectos de maquila industrial.</p>
+          <p>Nuestra historia se ha construido alrededor de la ingeniería aplicada: escuchar el requerimiento del cliente, analizar el uso final de la pieza, proponer materiales viables y fabricar con procesos que equilibran resistencia, funcionalidad, costo y tiempo de entrega.</p>
+          <p>Este enfoque nos permite participar desde etapas tempranas de conceptualización hasta fabricación, acabados, ajustes de molde y producción repetitiva.</p>
+        </div>
+        <div class="history-card">
+          <h3>Lo que nos distingue</h3>
+          <ul class="feature-list">
+            <li>Experiencia comprobada en diseño y fabricación de piezas industriales a la medida.</li>
+            <li>Acompañamiento técnico para definir espesores, geometría, moldes, acabados y factibilidad.</li>
+            <li>Soluciones para termoformado en México, fabricación en fibra de vidrio y maquila industrial México.</li>
+            <li>Flexibilidad para adaptar cada proyecto a necesidades técnicas y económicas del cliente.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="termoformado">
+      <div class="container">
+        <p class="eyebrow">Desglose técnico</p>
+        <h2>¿Qué es el termoformado y para qué sirve?</h2>
+        <p class="subtitle">El termoformado es un proceso de transformación plástica en el que una lámina se calienta hasta alcanzar flexibilidad, se moldea sobre una herramienta y se enfría para conservar su nueva forma.</p>
+        <div class="process-grid">
+          <article class="process-card">
+            <img alt="Lámina plástica calentada para proceso de termoformado" src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22900%22%20height=%22620%22%20viewBox=%220%200%20900%20620%22%20role=%22img%22%20aria-labelledby=%22title%20desc%22%3E%0A%20%20%3Ctitle%3ETermoformado%3C/title%3E%0A%20%20%3Cdesc%3EIlustraci%C3%B3n%20industrial%20de%20Termoformado%20para%20Veta%20Manufacturera.%3C/desc%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id=%22bg%22%20x1=%220%22%20y1=%220%22%20x2=%221%22%20y2=%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset=%220%22%20stop-color=%22%23101418%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset=%220.55%22%20stop-color=%22%231b2330%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset=%221%22%20stop-color=%22%230c0e11%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%20%20%3ClinearGradient%20id=%22metal%22%20x1=%220%22%20y1=%220%22%20x2=%221%22%20y2=%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset=%220%22%20stop-color=%22%23c5ccd6%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset=%220.5%22%20stop-color=%22%23737f8d%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset=%221%22%20stop-color=%22%23d8dee7%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%20%20%3Cpattern%20id=%22grid%22%20width=%2242%22%20height=%2242%22%20patternUnits=%22userSpaceOnUse%22%3E%0A%20%20%20%20%20%20%3Cpath%20d=%22M42%200H0V42%22%20fill=%22none%22%20stroke=%22%23ffffff%22%20stroke-opacity=%220.055%22%20stroke-width=%221%22/%3E%0A%20%20%20%20%3C/pattern%3E%0A%20%20%20%20%3Cfilter%20id=%22shadow%22%20x=%22-20%%22%20y=%22-20%%22%20width=%22140%%22%20height=%22140%%22%3E%0A%20%20%20%20%20%20%3CfeDropShadow%20dx=%220%22%20dy=%2216%22%20stdDeviation=%2214%22%20flood-color=%22%23000%22%20flood-opacity=%220.35%22/%3E%0A%20%20%20%20%3C/filter%3E%0A%20%20%3C/defs%3E%0A%20%20%3Crect%20width=%22900%22%20height=%22620%22%20fill=%22url(%23bg)%22/%3E%0A%20%20%3Crect%20width=%22900%22%20height=%22620%22%20fill=%22url(%23grid)%22/%3E%0A%20%20%3Ccircle%20cx=%22760%22%20cy=%22100%22%20r=%22180%22%20fill=%22%233f8dd6%22%20opacity=%220.18%22/%3E%0A%20%20%3Ccircle%20cx=%22120%22%20cy=%22520%22%20r=%22150%22%20fill=%22%233f8dd6%22%20opacity=%220.14%22/%3E%0A%20%20%3Cg%20filter=%22url(%23shadow)%22%3E%0A%20%20%20%20%3Crect%20x=%22120%22%20y=%22120%22%20width=%22660%22%20height=%22360%22%20rx=%2228%22%20fill=%22%23171b20%22%20stroke=%22%23ffffff%22%20stroke-opacity=%220.12%22/%3E%0A%20%20%20%20%3Crect%20x=%22160%22%20y=%22170%22%20width=%22290%22%20height=%22190%22%20rx=%2214%22%20fill=%22url(%23metal)%22%20opacity=%220.82%22/%3E%0A%20%20%20%20%3Crect%20x=%22485%22%20y=%22170%22%20width=%22230%22%20height=%22190%22%20rx=%2214%22%20fill=%22%233f8dd6%22%20opacity=%220.72%22/%3E%0A%20%20%20%20%3Cpath%20d=%22M190%20405H710%22%20stroke=%22%23dce4ee%22%20stroke-opacity=%220.55%22%20stroke-width=%2218%22%20stroke-linecap=%22round%22/%3E%0A%20%20%20%20%3Cpath%20d=%22M210%20405H360M430%20405H580M630%20405H690%22%20stroke=%22%23101418%22%20stroke-opacity=%220.55%22%20stroke-width=%228%22%20stroke-linecap=%22round%22/%3E%0A%20%20%20%20%3Cg%20stroke=%22%23ffffff%22%20stroke-opacity=%220.35%22%20stroke-width=%2210%22%20fill=%22none%22%20stroke-linecap=%22round%22%3E%0A%20%20%20%20%20%20%3Cpath%20d=%22M220%20250h170%22/%3E%0A%20%20%20%20%20%20%3Cpath%20d=%22M535%20250h130%22/%3E%0A%20%20%20%20%20%20%3Cpath%20d=%22M535%20295h100%22/%3E%0A%20%20%20%20%3C/g%3E%0A%20%20%20%20%3Cpath%20d=%22M505%20360c60-70%20130-70%20190%200%22%20fill=%22none%22%20stroke=%22%23ffffff%22%20stroke-opacity=%220.45%22%20stroke-width=%2216%22%20stroke-linecap=%22round%22/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x=%22450%22%20y=%22535%22%20fill=%22%23e5e9f0%22%20font-family=%22Segoe%20UI,%20Arial,%20sans-serif%22%20font-size=%2234%22%20font-weight=%22800%22%20text-anchor=%22middle%22%3EL%C3%81MINA%20CALENTADA%3C/text%3E%0A%20%20%3Ctext%20x=%22450%22%20y=%22574%22%20fill=%22%23b4bdc7%22%20font-family=%22Segoe%20UI,%20Arial,%20sans-serif%22%20font-size=%2222%22%20font-weight=%22600%22%20text-anchor=%22middle%22%3EMOLDEADO%20AL%20VAC%C3%8DO%3C/text%3E%0A%3C/svg%3E%0A" />
+            <h3>Proceso de termoformado</h3>
+            <ol class="steps">
+              <li>Se selecciona el material y espesor de acuerdo con uso, resistencia, acabado y presupuesto.</li>
+              <li>La lámina se calienta de forma controlada hasta lograr la maleabilidad necesaria.</li>
+              <li>El material se forma sobre un molde mediante vacío, presión o apoyo mecánico.</li>
+              <li>La pieza se enfría, se recorta, se perfora y se prepara para su acabado final.</li>
+            </ol>
+          </article>
+          <article class="process-card">
+            <h3>Problemas que resuelve</h3>
+            <p>El termoformado ayuda a fabricar cubiertas, charolas, carcasas, tapas, paneles y piezas volumétricas cuando el cliente requiere geometrías funcionales sin recurrir a procesos más costosos para ciertos volúmenes.</p>
+            <ul class="feature-list">
+              <li>Reduce costos de herramental frente a alternativas de alta inversión inicial.</li>
+              <li>Permite prototipos, series cortas, medianas y ajustes de diseño más ágiles.</li>
+              <li>Ofrece buena repetibilidad dimensional y acabados visuales profesionales.</li>
+              <li>Facilita piezas ligeras, lavables y adaptables a distintas industrias.</li>
+            </ul>
+          </article>
+          <article class="process-card">
+            <h3>Aplicaciones industriales</h3>
+            <p>En proyectos B2B, el termoformado se utiliza para componentes que deben proteger, contener, cubrir, organizar o presentar productos y equipos.</p>
+            <ul class="feature-list">
+              <li>Charolas y empaques industriales reutilizables.</li>
+              <li>Cubiertas para maquinaria, gabinetes y carcasas.</li>
+              <li>Paneles, tapas, insertos y piezas de protección.</li>
+              <li>Componentes plásticos a la medida para líneas productivas.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="fibra" class="light-section">
+      <div class="container">
+        <p class="eyebrow">Material compuesto</p>
+        <h2>¿Qué es la fibra de vidrio y cuándo conviene utilizarla?</h2>
+        <p class="subtitle">La fibra de vidrio es un material compuesto formado por refuerzos de fibra y resinas que, al curar, generan piezas rígidas, resistentes, ligeras y durables para ambientes industriales.</p>
+        <div class="process-grid">
+          <article class="process-card">
+            <img alt="Aplicación de fibra de vidrio sobre molde industrial" src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22900%22%20height=%22620%22%20viewBox=%220%200%20900%20620%22%20role=%22img%22%20aria-labelledby=%22title%20desc%22%3E%0A%20%20%3Ctitle%3EFibra%20de%20vidrio%3C/title%3E%0A%20%20%3Cdesc%3EIlustraci%C3%B3n%20industrial%20de%20Fibra%20de%20vidrio%20para%20Veta%20Manufacturera.%3C/desc%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id=%22bg%22%20x1=%220%22%20y1=%220%22%20x2=%221%22%20y2=%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset=%220%22%20stop-color=%22%23101418%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset=%220.55%22%20stop-color=%22%231b2330%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset=%221%22%20stop-color=%22%230c0e11%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%20%20%3ClinearGradient%20id=%22metal%22%20x1=%220%22%20y1=%220%22%20x2=%221%22%20y2=%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset=%220%22%20stop-color=%22%23c5ccd6%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset=%220.5%22%20stop-color=%22%23737f8d%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset=%221%22%20stop-color=%22%23d8dee7%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%20%20%3Cpattern%20id=%22grid%22%20width=%2242%22%20height=%2242%22%20patternUnits=%22userSpaceOnUse%22%3E%0A%20%20%20%20%20%20%3Cpath%20d=%22M42%200H0V42%22%20fill=%22none%22%20stroke=%22%23ffffff%22%20stroke-opacity=%220.055%22%20stroke-width=%221%22/%3E%0A%20%20%20%20%3C/pattern%3E%0A%20%20%20%20%3Cfilter%20id=%22shadow%22%20x=%22-20%%22%20y=%22-20%%22%20width=%22140%%22%20height=%22140%%22%3E%0A%20%20%20%20%20%20%3CfeDropShadow%20dx=%220%22%20dy=%2216%22%20stdDeviation=%2214%22%20flood-color=%22%23000%22%20flood-opacity=%220.35%22/%3E%0A%20%20%20%20%3C/filter%3E%0A%20%20%3C/defs%3E%0A%20%20%3Crect%20width=%22900%22%20height=%22620%22%20fill=%22url(%23bg)%22/%3E%0A%20%20%3Crect%20width=%22900%22%20height=%22620%22%20fill=%22url(%23grid)%22/%3E%0A%20%20%3Ccircle%20cx=%22760%22%20cy=%22100%22%20r=%22180%22%20fill=%22%237b8794%22%20opacity=%220.18%22/%3E%0A%20%20%3Ccircle%20cx=%22120%22%20cy=%22520%22%20r=%22150%22%20fill=%22%237b8794%22%20opacity=%220.14%22/%3E%0A%20%20%3Cg%20filter=%22url(%23shadow)%22%3E%0A%20%20%20%20%3Crect%20x=%22120%22%20y=%22120%22%20width=%22660%22%20height=%22360%22%20rx=%2228%22%20fill=%22%23171b20%22%20stroke=%22%23ffffff%22%20stroke-opacity=%220.12%22/%3E%0A%20%20%20%20%3Crect%20x=%22160%22%20y=%22170%22%20width=%22290%22%20height=%22190%22%20rx=%2214%22%20fill=%22url(%23metal)%22%20opacity=%220.82%22/%3E%0A%20%20%20%20%3Crect%20x=%22485%22%20y=%22170%22%20width=%22230%22%20height=%22190%22%20rx=%2214%22%20fill=%22%237b8794%22%20opacity=%220.72%22/%3E%0A%20%20%20%20%3Cpath%20d=%22M190%20405H710%22%20stroke=%22%23dce4ee%22%20stroke-opacity=%220.55%22%20stroke-width=%2218%22%20stroke-linecap=%22round%22/%3E%0A%20%20%20%20%3Cpath%20d=%22M210%20405H360M430%20405H580M630%20405H690%22%20stroke=%22%23101418%22%20stroke-opacity=%220.55%22%20stroke-width=%228%22%20stroke-linecap=%22round%22/%3E%0A%20%20%20%20%3Cg%20stroke=%22%23ffffff%22%20stroke-opacity=%220.35%22%20stroke-width=%2210%22%20fill=%22none%22%20stroke-linecap=%22round%22%3E%0A%20%20%20%20%20%20%3Cpath%20d=%22M220%20250h170%22/%3E%0A%20%20%20%20%20%20%3Cpath%20d=%22M535%20250h130%22/%3E%0A%20%20%20%20%20%20%3Cpath%20d=%22M535%20295h100%22/%3E%0A%20%20%20%20%3C/g%3E%0A%20%20%20%20%3Cpath%20d=%22M505%20360c60-70%20130-70%20190%200%22%20fill=%22none%22%20stroke=%22%23ffffff%22%20stroke-opacity=%220.45%22%20stroke-width=%2216%22%20stroke-linecap=%22round%22/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x=%22450%22%20y=%22535%22%20fill=%22%23e5e9f0%22%20font-family=%22Segoe%20UI,%20Arial,%20sans-serif%22%20font-size=%2234%22%20font-weight=%22800%22%20text-anchor=%22middle%22%3ECAPAS%20DE%20FIBRA%3C/text%3E%0A%20%20%3Ctext%20x=%22450%22%20y=%22574%22%20fill=%22%23b4bdc7%22%20font-family=%22Segoe%20UI,%20Arial,%20sans-serif%22%20font-size=%2222%22%20font-weight=%22600%22%20text-anchor=%22middle%22%3ERESINA%20+%20MOLDE%3C/text%3E%0A%3C/svg%3E%0A" />
+            <h3>Proceso de fabricación en fibra de vidrio</h3>
+            <ol class="steps">
+              <li>Se diseña o acondiciona el molde según la forma y acabado requerido.</li>
+              <li>Se prepara la superficie, se aplican desmoldantes y capas de resina.</li>
+              <li>Se colocan refuerzos de fibra de vidrio para aportar resistencia estructural.</li>
+              <li>La pieza cura, se desmolda, se recorta, se lija y se termina según especificación.</li>
+            </ol>
+          </article>
+          <article class="process-card">
+            <h3>Ventajas para el cliente</h3>
+            <p>La fabricación en fibra de vidrio es ideal cuando se necesitan piezas a la medida fibra de vidrio con resistencia a corrosión, impacto moderado, intemperie o condiciones de operación demandantes.</p>
+            <ul class="feature-list">
+              <li>Alta relación resistencia-peso para piezas grandes o complejas.</li>
+              <li>Buena resistencia química, humedad e intemperie según sistema de resina.</li>
+              <li>Libertad de diseño para geometrías, espesores, refuerzos y acabados.</li>
+              <li>Viabilidad para proyectos personalizados y reposición de componentes.</li>
+            </ul>
+          </article>
+          <article class="process-card">
+            <h3>Aplicaciones industriales</h3>
+            <p>La fibra de vidrio permite producir componentes robustos para operación, protección, transporte o integración en equipos.</p>
+            <ul class="feature-list">
+              <li>Guardas, cubiertas, tapas, carcasas y paneles.</li>
+              <li>Piezas para intemperie o ambientes corrosivos.</li>
+              <li>Componentes de bajo peso con requerimiento estructural.</li>
+              <li>Moldes, prototipos y piezas especiales por proyecto.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="servicios">
+      <div class="container">
+        <h2>Servicios industriales especializados</h2>
+        <p class="subtitle">Soluciones enfocadas en diseño y fabricación de piezas industriales con eficiencia, trazabilidad técnica y acompañamiento continuo.</p>
+        <div class="services">
+          <article class="service-card">
+            <img class="service-image" alt="Diseño industrial de piezas a la medida" src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22900%22%20height=%22620%22%20viewBox=%220%200%20900%20620%22%20role=%22img%22%20aria-labelledby=%22title%20desc%22%3E%0A%20%20%3Ctitle%3EDise%C3%B1o%20industrial%3C/title%3E%0A%20%20%3Cdesc%3EIlustraci%C3%B3n%20industrial%20de%20Dise%C3%B1o%20industrial%20para%20Veta%20Manufacturera.%3C/desc%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id=%22bg%22%20x1=%220%22%20y1=%220%22%20x2=%221%22%20y2=%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset=%220%22%20stop-color=%22%23101418%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset=%220.55%22%20stop-color=%22%231b2330%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset=%221%22%20stop-color=%22%230c0e11%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%20%20%3ClinearGradient%20id=%22metal%22%20x1=%220%22%20y1=%220%22%20x2=%221%22%20y2=%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset=%220%22%20stop-color=%22%23c5ccd6%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset=%220.5%22%20stop-color=%22%23737f8d%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset=%221%22%20stop-color=%22%23d8dee7%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%20%20%3Cpattern%20id=%22grid%22%20width=%2242%22%20height=%2242%22%20patternUnits=%22userSpaceOnUse%22%3E%0A%20%20%20%20%20%20%3Cpath%20d=%22M42%200H0V42%22%20fill=%22none%22%20stroke=%22%23ffffff%22%20stroke-opacity=%220.055%22%20stroke-width=%221%22/%3E%0A%20%20%20%20%3C/pattern%3E%0A%20%20%20%20%3Cfilter%20id=%22shadow%22%20x=%22-20%%22%20y=%22-20%%22%20width=%22140%%22%20height=%22140%%22%3E%0A%20%20%20%20%20%20%3CfeDropShadow%20dx=%220%22%20dy=%2216%22%20stdDeviation=%2214%22%20flood-color=%22%23000%22%20flood-opacity=%220.35%22/%3E%0A%20%20%20%20%3C/filter%3E%0A%20%20%3C/defs%3E%0A%20%20%3Crect%20width=%22900%22%20height=%22620%22%20fill=%22url(%23bg)%22/%3E%0A%20%20%3Crect%20width=%22900%22%20height=%22620%22%20fill=%22url(%23grid)%22/%3E%0A%20%20%3Ccircle%20cx=%22760%22%20cy=%22100%22%20r=%22180%22%20fill=%22%232a6db0%22%20opacity=%220.18%22/%3E%0A%20%20%3Ccircle%20cx=%22120%22%20cy=%22520%22%20r=%22150%22%20fill=%22%232a6db0%22%20opacity=%220.14%22/%3E%0A%20%20%3Cg%20filter=%22url(%23shadow)%22%3E%0A%20%20%20%20%3Crect%20x=%22120%22%20y=%22120%22%20width=%22660%22%20height=%22360%22%20rx=%2228%22%20fill=%22%23171b20%22%20stroke=%22%23ffffff%22%20stroke-opacity=%220.12%22/%3E%0A%20%20%20%20%3Crect%20x=%22160%22%20y=%22170%22%20width=%22290%22%20height=%22190%22%20rx=%2214%22%20fill=%22url(%23metal)%22%20opacity=%220.82%22/%3E%0A%20%20%20%20%3Crect%20x=%22485%22%20y=%22170%22%20width=%22230%22%20height=%22190%22%20rx=%2214%22%20fill=%22%232a6db0%22%20opacity=%220.72%22/%3E%0A%20%20%20%20%3Cpath%20d=%22M190%20405H710%22%20stroke=%22%23dce4ee%22%20stroke-opacity=%220.55%22%20stroke-width=%2218%22%20stroke-linecap=%22round%22/%3E%0A%20%20%20%20%3Cpath%20d=%22M210%20405H360M430%20405H580M630%20405H690%22%20stroke=%22%23101418%22%20stroke-opacity=%220.55%22%20stroke-width=%228%22%20stroke-linecap=%22round%22/%3E%0A%20%20%20%20%3Cg%20stroke=%22%23ffffff%22%20stroke-opacity=%220.35%22%20stroke-width=%2210%22%20fill=%22none%22%20stroke-linecap=%22round%22%3E%0A%20%20%20%20%20%20%3Cpath%20d=%22M220%20250h170%22/%3E%0A%20%20%20%20%20%20%3Cpath%20d=%22M535%20250h130%22/%3E%0A%20%20%20%20%20%20%3Cpath%20d=%22M535%20295h100%22/%3E%0A%20%20%20%20%3C/g%3E%0A%20%20%20%20%3Cpath%20d=%22M505%20360c60-70%20130-70%20190%200%22%20fill=%22none%22%20stroke=%22%23ffffff%22%20stroke-opacity=%220.45%22%20stroke-width=%2216%22%20stroke-linecap=%22round%22/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x=%22450%22%20y=%22535%22%20fill=%22%23e5e9f0%22%20font-family=%22Segoe%20UI,%20Arial,%20sans-serif%22%20font-size=%2234%22%20font-weight=%22800%22%20text-anchor=%22middle%22%3EDISE%C3%91O%20CAD%3C/text%3E%0A%20%20%3Ctext%20x=%22450%22%20y=%22574%22%20fill=%22%23b4bdc7%22%20font-family=%22Segoe%20UI,%20Arial,%20sans-serif%22%20font-size=%2222%22%20font-weight=%22600%22%20text-anchor=%22middle%22%3EPIEZA%20A%20MEDIDA%3C/text%3E%0A%3C/svg%3E%0A" />
+            <h2>Diseño industrial de piezas a la medida</h2>
+            <p>Resolvemos la necesidad de conceptualizar piezas funcionales desde cero, alineando ingeniería, resistencia y costos. Traducimos requerimientos en propuestas técnicas viables para fabricación.</p>
+          </article>
+          <article class="service-card">
+            <img class="service-image" alt="Fabricación en termoformado para piezas industriales" src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22900%22%20height=%22620%22%20viewBox=%220%200%20900%20620%22%20role=%22img%22%20aria-labelledby=%22title%20desc%22%3E%0A%20%20%3Ctitle%3EServicio%20termoformado%3C/title%3E%0A%20%20%3Cdesc%3EIlustraci%C3%B3n%20industrial%20de%20Servicio%20termoformado%20para%20Veta%20Manufacturera.%3C/desc%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id=%22bg%22%20x1=%220%22%20y1=%220%22%20x2=%221%22%20y2=%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset=%220%22%20stop-color=%22%23101418%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset=%220.55%22%20stop-color=%22%231b2330%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset=%221%22%20stop-color=%22%230c0e11%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%20%20%3ClinearGradient%20id=%22metal%22%20x1=%220%22%20y1=%220%22%20x2=%221%22%20y2=%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset=%220%22%20stop-color=%22%23c5ccd6%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset=%220.5%22%20stop-color=%22%23737f8d%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset=%221%22%20stop-color=%22%23d8dee7%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%20%20%3Cpattern%20id=%22grid%22%20width=%2242%22%20height=%2242%22%20patternUnits=%22userSpaceOnUse%22%3E%0A%20%20%20%20%20%20%3Cpath%20d=%22M42%200H0V42%22%20fill=%22none%22%20stroke=%22%23ffffff%22%20stroke-opacity=%220.055%22%20stroke-width=%221%22/%3E%0A%20%20%20%20%3C/pattern%3E%0A%20%20%20%20%3Cfilter%20id=%22shadow%22%20x=%22-20%%22%20y=%22-20%%22%20width=%22140%%22%20height=%22140%%22%3E%0A%20%20%20%20%20%20%3CfeDropShadow%20dx=%220%22%20dy=%2216%22%20stdDeviation=%2214%22%20flood-color=%22%23000%22%20flood-opacity=%220.35%22/%3E%0A%20%20%20%20%3C/filter%3E%0A%20%20%3C/defs%3E%0A%20%20%3Crect%20width=%22900%22%20height=%22620%22%20fill=%22url(%23bg)%22/%3E%0A%20%20%3Crect%20width=%22900%22%20height=%22620%22%20fill=%22url(%23grid)%22/%3E%0A%20%20%3Ccircle%20cx=%22760%22%20cy=%22100%22%20r=%22180%22%20fill=%22%233f8dd6%22%20opacity=%220.18%22/%3E%0A%20%20%3Ccircle%20cx=%22120%22%20cy=%22520%22%20r=%22150%22%20fill=%22%233f8dd6%22%20opacity=%220.14%22/%3E%0A%20%20%3Cg%20filter=%22url(%23shadow)%22%3E%0A%20%20%20%20%3Crect%20x=%22120%22%20y=%22120%22%20width=%22660%22%20height=%22360%22%20rx=%2228%22%20fill=%22%23171b20%22%20stroke=%22%23ffffff%22%20stroke-opacity=%220.12%22/%3E%0A%20%20%20%20%3Crect%20x=%22160%22%20y=%22170%22%20width=%22290%22%20height=%22190%22%20rx=%2214%22%20fill=%22url(%23metal)%22%20opacity=%220.82%22/%3E%0A%20%20%20%20%3Crect%20x=%22485%22%20y=%22170%22%20width=%22230%22%20height=%22190%22%20rx=%2214%22%20fill=%22%233f8dd6%22%20opacity=%220.72%22/%3E%0A%20%20%20%20%3Cpath%20d=%22M190%20405H710%22%20stroke=%22%23dce4ee%22%20stroke-opacity=%220.55%22%20stroke-width=%2218%22%20stroke-linecap=%22round%22/%3E%0A%20%20%20%20%3Cpath%20d=%22M210%20405H360M430%20405H580M630%20405H690%22%20stroke=%22%23101418%22%20stroke-opacity=%220.55%22%20stroke-width=%228%22%20stroke-linecap=%22round%22/%3E%0A%20%20%20%20%3Cg%20stroke=%22%23ffffff%22%20stroke-opacity=%220.35%22%20stroke-width=%2210%22%20fill=%22none%22%20stroke-linecap=%22round%22%3E%0A%20%20%20%20%20%20%3Cpath%20d=%22M220%20250h170%22/%3E%0A%20%20%20%20%20%20%3Cpath%20d=%22M535%20250h130%22/%3E%0A%20%20%20%20%20%20%3Cpath%20d=%22M535%20295h100%22/%3E%0A%20%20%20%20%3C/g%3E%0A%20%20%20%20%3Cpath%20d=%22M505%20360c60-70%20130-70%20190%200%22%20fill=%22none%22%20stroke=%22%23ffffff%22%20stroke-opacity=%220.45%22%20stroke-width=%2216%22%20stroke-linecap=%22round%22/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x=%22450%22%20y=%22535%22%20fill=%22%23e5e9f0%22%20font-family=%22Segoe%20UI,%20Arial,%20sans-serif%22%20font-size=%2234%22%20font-weight=%22800%22%20text-anchor=%22middle%22%3EPRODUCCI%C3%93N%3C/text%3E%0A%20%20%3Ctext%20x=%22450%22%20y=%22574%22%20fill=%22%23b4bdc7%22%20font-family=%22Segoe%20UI,%20Arial,%20sans-serif%22%20font-size=%2222%22%20font-weight=%22600%22%20text-anchor=%22middle%22%3EPIEZAS%20TERMOFORMADAS%3C/text%3E%0A%3C/svg%3E%0A" />
+            <h2>Fabricación en termoformado</h2>
+            <p>Atendemos clientes que buscan termoformado en México con control de calidad, personalización y acompañamiento desde el prototipo hasta la producción.</p>
+          </article>
+          <article class="service-card">
+            <img class="service-image" alt="Fabricación en fibra de vidrio a la medida" src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22900%22%20height=%22620%22%20viewBox=%220%200%20900%20620%22%20role=%22img%22%20aria-labelledby=%22title%20desc%22%3E%0A%20%20%3Ctitle%3EServicio%20fibra%3C/title%3E%0A%20%20%3Cdesc%3EIlustraci%C3%B3n%20industrial%20de%20Servicio%20fibra%20para%20Veta%20Manufacturera.%3C/desc%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id=%22bg%22%20x1=%220%22%20y1=%220%22%20x2=%221%22%20y2=%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset=%220%22%20stop-color=%22%23101418%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset=%220.55%22%20stop-color=%22%231b2330%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset=%221%22%20stop-color=%22%230c0e11%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%20%20%3ClinearGradient%20id=%22metal%22%20x1=%220%22%20y1=%220%22%20x2=%221%22%20y2=%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset=%220%22%20stop-color=%22%23c5ccd6%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset=%220.5%22%20stop-color=%22%23737f8d%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset=%221%22%20stop-color=%22%23d8dee7%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%20%20%3Cpattern%20id=%22grid%22%20width=%2242%22%20height=%2242%22%20patternUnits=%22userSpaceOnUse%22%3E%0A%20%20%20%20%20%20%3Cpath%20d=%22M42%200H0V42%22%20fill=%22none%22%20stroke=%22%23ffffff%22%20stroke-opacity=%220.055%22%20stroke-width=%221%22/%3E%0A%20%20%20%20%3C/pattern%3E%0A%20%20%20%20%3Cfilter%20id=%22shadow%22%20x=%22-20%%22%20y=%22-20%%22%20width=%22140%%22%20height=%22140%%22%3E%0A%20%20%20%20%20%20%3CfeDropShadow%20dx=%220%22%20dy=%2216%22%20stdDeviation=%2214%22%20flood-color=%22%23000%22%20flood-opacity=%220.35%22/%3E%0A%20%20%20%20%3C/filter%3E%0A%20%20%3C/defs%3E%0A%20%20%3Crect%20width=%22900%22%20height=%22620%22%20fill=%22url(%23bg)%22/%3E%0A%20%20%3Crect%20width=%22900%22%20height=%22620%22%20fill=%22url(%23grid)%22/%3E%0A%20%20%3Ccircle%20cx=%22760%22%20cy=%22100%22%20r=%22180%22%20fill=%22%237b8794%22%20opacity=%220.18%22/%3E%0A%20%20%3Ccircle%20cx=%22120%22%20cy=%22520%22%20r=%22150%22%20fill=%22%237b8794%22%20opacity=%220.14%22/%3E%0A%20%20%3Cg%20filter=%22url(%23shadow)%22%3E%0A%20%20%20%20%3Crect%20x=%22120%22%20y=%22120%22%20width=%22660%22%20height=%22360%22%20rx=%2228%22%20fill=%22%23171b20%22%20stroke=%22%23ffffff%22%20stroke-opacity=%220.12%22/%3E%0A%20%20%20%20%3Crect%20x=%22160%22%20y=%22170%22%20width=%22290%22%20height=%22190%22%20rx=%2214%22%20fill=%22url(%23metal)%22%20opacity=%220.82%22/%3E%0A%20%20%20%20%3Crect%20x=%22485%22%20y=%22170%22%20width=%22230%22%20height=%22190%22%20rx=%2214%22%20fill=%22%237b8794%22%20opacity=%220.72%22/%3E%0A%20%20%20%20%3Cpath%20d=%22M190%20405H710%22%20stroke=%22%23dce4ee%22%20stroke-opacity=%220.55%22%20stroke-width=%2218%22%20stroke-linecap=%22round%22/%3E%0A%20%20%20%20%3Cpath%20d=%22M210%20405H360M430%20405H580M630%20405H690%22%20stroke=%22%23101418%22%20stroke-opacity=%220.55%22%20stroke-width=%228%22%20stroke-linecap=%22round%22/%3E%0A%20%20%20%20%3Cg%20stroke=%22%23ffffff%22%20stroke-opacity=%220.35%22%20stroke-width=%2210%22%20fill=%22none%22%20stroke-linecap=%22round%22%3E%0A%20%20%20%20%20%20%3Cpath%20d=%22M220%20250h170%22/%3E%0A%20%20%20%20%20%20%3Cpath%20d=%22M535%20250h130%22/%3E%0A%20%20%20%20%20%20%3Cpath%20d=%22M535%20295h100%22/%3E%0A%20%20%20%20%3C/g%3E%0A%20%20%20%20%3Cpath%20d=%22M505%20360c60-70%20130-70%20190%200%22%20fill=%22none%22%20stroke=%22%23ffffff%22%20stroke-opacity=%220.45%22%20stroke-width=%2216%22%20stroke-linecap=%22round%22/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x=%22450%22%20y=%22535%22%20fill=%22%23e5e9f0%22%20font-family=%22Segoe%20UI,%20Arial,%20sans-serif%22%20font-size=%2234%22%20font-weight=%22800%22%20text-anchor=%22middle%22%3ELAMINADO%3C/text%3E%0A%20%20%3Ctext%20x=%22450%22%20y=%22574%22%20fill=%22%23b4bdc7%22%20font-family=%22Segoe%20UI,%20Arial,%20sans-serif%22%20font-size=%2222%22%20font-weight=%22600%22%20text-anchor=%22middle%22%3EFIBRA%20DE%20VIDRIO%3C/text%3E%0A%3C/svg%3E%0A" />
+            <h2>Fabricación en fibra de vidrio</h2>
+            <p>Desarrollamos componentes resistentes, ligeros y durables para aplicaciones industriales que demandan fabricación en fibra de vidrio confiable.</p>
+          </article>
+          <article class="service-card">
+            <h2>Maquila industrial</h2>
+            <p>Integramos procesos de corte, armado, acabado y apoyo productivo para empresas que necesitan liberar capacidad interna mediante maquila industrial México.</p>
+          </article>
+          <article class="service-card">
+            <h2>Desarrollo de proyectos industriales integrales</h2>
+            <p>Gestionamos ingeniería, moldes, materiales, fabricación y entrega final para reducir riesgos, optimizar recursos y asegurar acompañamiento técnico.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="galeria">
+      <div class="container">
+        <h2>Galería y capacidad productiva</h2>
+        <p class="subtitle">Contamos con la capacidad técnica y productiva para atender proyectos industriales de diferentes escalas, desde prototipos hasta fabricación recurrente.</p>
+        <div class="gallery">
+          <figure>
+            <div class="photo-slot">
+              <img class="local-photo" data-srcs="fotografias/foto-1.jpg|public/html/fotografias/foto-1.jpg" alt="Proceso de termoformado industrial" />
+              <div class="photo-placeholder" aria-hidden="true">
+                <svg viewBox="0 0 320 210" role="img">
+                  <rect x="22" y="42" width="276" height="126" rx="16" fill="#171b20" stroke="#d8dee7" stroke-opacity="0.26" />
+                  <rect x="50" y="70" width="92" height="58" rx="9" fill="#8b96a3" opacity="0.78" />
+                  <rect x="166" y="70" width="104" height="58" rx="9" fill="#2a6db0" opacity="0.74" />
+                  <path d="M58 148h204" stroke="#d8dee7" stroke-opacity="0.52" stroke-width="10" stroke-linecap="round" />
+                  <path d="M86 148h46M160 148h72" stroke="#101418" stroke-opacity="0.62" stroke-width="5" stroke-linecap="round" />
+                </svg>
+                <strong>Termoformado</strong>
+                <span>Fotografía de proceso</span>
+              </div>
+            </div>
+            <figcaption>Proceso de termoformado industrial.</figcaption>
+          </figure>
+          <figure>
+            <div class="photo-slot">
+              <img class="local-photo" data-srcs="fotografias/foto-2.jpg|public/html/fotografias/foto-2.jpg" alt="Moldes industriales para piezas a la medida" />
+              <div class="photo-placeholder" aria-hidden="true">
+                <svg viewBox="0 0 320 210" role="img">
+                  <rect x="22" y="42" width="276" height="126" rx="16" fill="#171b20" stroke="#d8dee7" stroke-opacity="0.26" />
+                  <rect x="50" y="70" width="92" height="58" rx="9" fill="#8b96a3" opacity="0.78" />
+                  <rect x="166" y="70" width="104" height="58" rx="9" fill="#2a6db0" opacity="0.74" />
+                  <path d="M58 148h204" stroke="#d8dee7" stroke-opacity="0.52" stroke-width="10" stroke-linecap="round" />
+                  <path d="M86 148h46M160 148h72" stroke="#101418" stroke-opacity="0.62" stroke-width="5" stroke-linecap="round" />
+                </svg>
+                <strong>Moldes</strong>
+                <span>Fotografía de proceso</span>
+              </div>
+            </div>
+            <figcaption>Moldes industriales para piezas a la medida.</figcaption>
+          </figure>
+          <figure>
+            <div class="photo-slot">
+              <img class="local-photo" data-srcs="fotografias/foto-3.jpg|public/html/fotografias/foto-3.jpg" alt="Fabricación en fibra de vidrio" />
+              <div class="photo-placeholder" aria-hidden="true">
+                <svg viewBox="0 0 320 210" role="img">
+                  <rect x="22" y="42" width="276" height="126" rx="16" fill="#171b20" stroke="#d8dee7" stroke-opacity="0.26" />
+                  <rect x="50" y="70" width="92" height="58" rx="9" fill="#8b96a3" opacity="0.78" />
+                  <rect x="166" y="70" width="104" height="58" rx="9" fill="#2a6db0" opacity="0.74" />
+                  <path d="M58 148h204" stroke="#d8dee7" stroke-opacity="0.52" stroke-width="10" stroke-linecap="round" />
+                  <path d="M86 148h46M160 148h72" stroke="#101418" stroke-opacity="0.62" stroke-width="5" stroke-linecap="round" />
+                </svg>
+                <strong>Fibra de vidrio</strong>
+                <span>Fotografía de proceso</span>
+              </div>
+            </div>
+            <figcaption>Fabricación en fibra de vidrio.</figcaption>
+          </figure>
+          <figure>
+            <div class="photo-slot">
+              <img class="local-photo" data-srcs="fotografias/foto-4.jpg|public/html/fotografias/foto-4.jpg" alt="Piezas industriales terminadas" />
+              <div class="photo-placeholder" aria-hidden="true">
+                <svg viewBox="0 0 320 210" role="img">
+                  <rect x="22" y="42" width="276" height="126" rx="16" fill="#171b20" stroke="#d8dee7" stroke-opacity="0.26" />
+                  <rect x="50" y="70" width="92" height="58" rx="9" fill="#8b96a3" opacity="0.78" />
+                  <rect x="166" y="70" width="104" height="58" rx="9" fill="#2a6db0" opacity="0.74" />
+                  <path d="M58 148h204" stroke="#d8dee7" stroke-opacity="0.52" stroke-width="10" stroke-linecap="round" />
+                  <path d="M86 148h46M160 148h72" stroke="#101418" stroke-opacity="0.62" stroke-width="5" stroke-linecap="round" />
+                </svg>
+                <strong>Piezas terminadas</strong>
+                <span>Fotografía de proceso</span>
+              </div>
+            </div>
+            <figcaption>Piezas industriales terminadas.</figcaption>
+          </figure>
+        </div>
+        <div class="gallery-actions">
+          <a class="cta" href="#galeria-ampliada">Ver más fotografías</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="galeria-ampliada" class="light-section">
+      <div class="container">
+        <p class="eyebrow">Más espacio para fotografías</p>
+        <h2>Galería ampliada de procesos y proyectos industriales</h2>
+        <p class="subtitle">Este espacio permite mostrar más fotografías reales de termoformado, fibra de vidrio, moldes, maquila industrial y piezas terminadas, manteniendo una presentación amplia, ordenada y profesional.</p>
+        <div class="gallery expanded-gallery">
+          <figure>
+            <div class="photo-slot">
+              <img class="local-photo" data-srcs="fotografias/foto-5.jpg|public/html/fotografias/foto-5.jpg" alt="Proyecto industrial Veta Manufacturera" />
+              <div class="photo-placeholder" aria-hidden="true">
+                <svg viewBox="0 0 320 210" role="img">
+                  <rect x="22" y="42" width="276" height="126" rx="16" fill="#171b20" stroke="#d8dee7" stroke-opacity="0.26" />
+                  <rect x="50" y="70" width="92" height="58" rx="9" fill="#8b96a3" opacity="0.78" />
+                  <rect x="166" y="70" width="104" height="58" rx="9" fill="#2a6db0" opacity="0.74" />
+                  <path d="M58 148h204" stroke="#d8dee7" stroke-opacity="0.52" stroke-width="10" stroke-linecap="round" />
+                  <path d="M86 148h46M160 148h72" stroke="#101418" stroke-opacity="0.62" stroke-width="5" stroke-linecap="round" />
+                </svg>
+                <strong>Proyecto industrial</strong>
+                <span>Fotografía de proceso</span>
+              </div>
+            </div>
+            <figcaption>Proyecto industrial.</figcaption>
+          </figure>
+          <figure>
+            <div class="photo-slot">
+              <img class="local-photo" data-srcs="fotografias/foto-6.jpg|public/html/fotografias/foto-6.jpg" alt="Termoformado detalle Veta Manufacturera" />
+              <div class="photo-placeholder" aria-hidden="true">
+                <svg viewBox="0 0 320 210" role="img">
+                  <rect x="22" y="42" width="276" height="126" rx="16" fill="#171b20" stroke="#d8dee7" stroke-opacity="0.26" />
+                  <rect x="50" y="70" width="92" height="58" rx="9" fill="#8b96a3" opacity="0.78" />
+                  <rect x="166" y="70" width="104" height="58" rx="9" fill="#2a6db0" opacity="0.74" />
+                  <path d="M58 148h204" stroke="#d8dee7" stroke-opacity="0.52" stroke-width="10" stroke-linecap="round" />
+                  <path d="M86 148h46M160 148h72" stroke="#101418" stroke-opacity="0.62" stroke-width="5" stroke-linecap="round" />
+                </svg>
+                <strong>Termoformado detalle</strong>
+                <span>Fotografía de proceso</span>
+              </div>
+            </div>
+            <figcaption>Termoformado detalle.</figcaption>
+          </figure>
+          <figure>
+            <div class="photo-slot">
+              <img class="local-photo" data-srcs="fotografias/foto-7.jpg|public/html/fotografias/foto-7.jpg" alt="Molde en proceso Veta Manufacturera" />
+              <div class="photo-placeholder" aria-hidden="true">
+                <svg viewBox="0 0 320 210" role="img">
+                  <rect x="22" y="42" width="276" height="126" rx="16" fill="#171b20" stroke="#d8dee7" stroke-opacity="0.26" />
+                  <rect x="50" y="70" width="92" height="58" rx="9" fill="#8b96a3" opacity="0.78" />
+                  <rect x="166" y="70" width="104" height="58" rx="9" fill="#2a6db0" opacity="0.74" />
+                  <path d="M58 148h204" stroke="#d8dee7" stroke-opacity="0.52" stroke-width="10" stroke-linecap="round" />
+                  <path d="M86 148h46M160 148h72" stroke="#101418" stroke-opacity="0.62" stroke-width="5" stroke-linecap="round" />
+                </svg>
+                <strong>Molde en proceso</strong>
+                <span>Fotografía de proceso</span>
+              </div>
+            </div>
+            <figcaption>Molde en proceso.</figcaption>
+          </figure>
+          <figure>
+            <div class="photo-slot">
+              <img class="local-photo" data-srcs="fotografias/foto-8.jpg|public/html/fotografias/foto-8.jpg" alt="Fibra de vidrio detalle Veta Manufacturera" />
+              <div class="photo-placeholder" aria-hidden="true">
+                <svg viewBox="0 0 320 210" role="img">
+                  <rect x="22" y="42" width="276" height="126" rx="16" fill="#171b20" stroke="#d8dee7" stroke-opacity="0.26" />
+                  <rect x="50" y="70" width="92" height="58" rx="9" fill="#8b96a3" opacity="0.78" />
+                  <rect x="166" y="70" width="104" height="58" rx="9" fill="#2a6db0" opacity="0.74" />
+                  <path d="M58 148h204" stroke="#d8dee7" stroke-opacity="0.52" stroke-width="10" stroke-linecap="round" />
+                  <path d="M86 148h46M160 148h72" stroke="#101418" stroke-opacity="0.62" stroke-width="5" stroke-linecap="round" />
+                </svg>
+                <strong>Fibra de vidrio detalle</strong>
+                <span>Fotografía de proceso</span>
+              </div>
+            </div>
+            <figcaption>Fibra de vidrio detalle.</figcaption>
+          </figure>
+          <figure>
+            <div class="photo-slot">
+              <img class="local-photo" data-srcs="fotografias/foto-9.jpg|public/html/fotografias/foto-9.jpg" alt="Pieza a la medida Veta Manufacturera" />
+              <div class="photo-placeholder" aria-hidden="true">
+                <svg viewBox="0 0 320 210" role="img">
+                  <rect x="22" y="42" width="276" height="126" rx="16" fill="#171b20" stroke="#d8dee7" stroke-opacity="0.26" />
+                  <rect x="50" y="70" width="92" height="58" rx="9" fill="#8b96a3" opacity="0.78" />
+                  <rect x="166" y="70" width="104" height="58" rx="9" fill="#2a6db0" opacity="0.74" />
+                  <path d="M58 148h204" stroke="#d8dee7" stroke-opacity="0.52" stroke-width="10" stroke-linecap="round" />
+                  <path d="M86 148h46M160 148h72" stroke="#101418" stroke-opacity="0.62" stroke-width="5" stroke-linecap="round" />
+                </svg>
+                <strong>Pieza a la medida</strong>
+                <span>Fotografía de proceso</span>
+              </div>
+            </div>
+            <figcaption>Pieza a la medida.</figcaption>
+          </figure>
+          <figure>
+            <div class="photo-slot">
+              <img class="local-photo" data-srcs="fotografias/foto-10.jpg|public/html/fotografias/foto-10.jpg" alt="Acabados industriales Veta Manufacturera" />
+              <div class="photo-placeholder" aria-hidden="true">
+                <svg viewBox="0 0 320 210" role="img">
+                  <rect x="22" y="42" width="276" height="126" rx="16" fill="#171b20" stroke="#d8dee7" stroke-opacity="0.26" />
+                  <rect x="50" y="70" width="92" height="58" rx="9" fill="#8b96a3" opacity="0.78" />
+                  <rect x="166" y="70" width="104" height="58" rx="9" fill="#2a6db0" opacity="0.74" />
+                  <path d="M58 148h204" stroke="#d8dee7" stroke-opacity="0.52" stroke-width="10" stroke-linecap="round" />
+                  <path d="M86 148h46M160 148h72" stroke="#101418" stroke-opacity="0.62" stroke-width="5" stroke-linecap="round" />
+                </svg>
+                <strong>Acabados industriales</strong>
+                <span>Fotografía de proceso</span>
+              </div>
+            </div>
+            <figcaption>Acabados industriales.</figcaption>
+          </figure>
+          <figure>
+            <div class="photo-slot">
+              <img class="local-photo" data-srcs="fotografias/foto-11.jpg|public/html/fotografias/foto-11.jpg" alt="Producción Veta Manufacturera" />
+              <div class="photo-placeholder" aria-hidden="true">
+                <svg viewBox="0 0 320 210" role="img">
+                  <rect x="22" y="42" width="276" height="126" rx="16" fill="#171b20" stroke="#d8dee7" stroke-opacity="0.26" />
+                  <rect x="50" y="70" width="92" height="58" rx="9" fill="#8b96a3" opacity="0.78" />
+                  <rect x="166" y="70" width="104" height="58" rx="9" fill="#2a6db0" opacity="0.74" />
+                  <path d="M58 148h204" stroke="#d8dee7" stroke-opacity="0.52" stroke-width="10" stroke-linecap="round" />
+                  <path d="M86 148h46M160 148h72" stroke="#101418" stroke-opacity="0.62" stroke-width="5" stroke-linecap="round" />
+                </svg>
+                <strong>Producción</strong>
+                <span>Fotografía de proceso</span>
+              </div>
+            </div>
+            <figcaption>Producción.</figcaption>
+          </figure>
+          <figure>
+            <div class="photo-slot">
+              <img class="local-photo" data-srcs="fotografias/foto-12.jpg|public/html/fotografias/foto-12.jpg" alt="Maquila industrial Veta Manufacturera" />
+              <div class="photo-placeholder" aria-hidden="true">
+                <svg viewBox="0 0 320 210" role="img">
+                  <rect x="22" y="42" width="276" height="126" rx="16" fill="#171b20" stroke="#d8dee7" stroke-opacity="0.26" />
+                  <rect x="50" y="70" width="92" height="58" rx="9" fill="#8b96a3" opacity="0.78" />
+                  <rect x="166" y="70" width="104" height="58" rx="9" fill="#2a6db0" opacity="0.74" />
+                  <path d="M58 148h204" stroke="#d8dee7" stroke-opacity="0.52" stroke-width="10" stroke-linecap="round" />
+                  <path d="M86 148h46M160 148h72" stroke="#101418" stroke-opacity="0.62" stroke-width="5" stroke-linecap="round" />
+                </svg>
+                <strong>Maquila industrial</strong>
+                <span>Fotografía de proceso</span>
+              </div>
+            </div>
+            <figcaption>Maquila industrial.</figcaption>
+          </figure>
+          <figure>
+            <div class="photo-slot">
+              <img class="local-photo" data-srcs="fotografias/foto-13.jpg|public/html/fotografias/foto-13.jpg" alt="Prototipo Veta Manufacturera" />
+              <div class="photo-placeholder" aria-hidden="true">
+                <svg viewBox="0 0 320 210" role="img">
+                  <rect x="22" y="42" width="276" height="126" rx="16" fill="#171b20" stroke="#d8dee7" stroke-opacity="0.26" />
+                  <rect x="50" y="70" width="92" height="58" rx="9" fill="#8b96a3" opacity="0.78" />
+                  <rect x="166" y="70" width="104" height="58" rx="9" fill="#2a6db0" opacity="0.74" />
+                  <path d="M58 148h204" stroke="#d8dee7" stroke-opacity="0.52" stroke-width="10" stroke-linecap="round" />
+                  <path d="M86 148h46M160 148h72" stroke="#101418" stroke-opacity="0.62" stroke-width="5" stroke-linecap="round" />
+                </svg>
+                <strong>Prototipo</strong>
+                <span>Fotografía de proceso</span>
+              </div>
+            </div>
+            <figcaption>Prototipo.</figcaption>
+          </figure>
+          <figure>
+            <div class="photo-slot">
+              <img class="local-photo" data-srcs="fotografias/foto-14.jpg|public/html/fotografias/foto-14.jpg" alt="Componente terminado Veta Manufacturera" />
+              <div class="photo-placeholder" aria-hidden="true">
+                <svg viewBox="0 0 320 210" role="img">
+                  <rect x="22" y="42" width="276" height="126" rx="16" fill="#171b20" stroke="#d8dee7" stroke-opacity="0.26" />
+                  <rect x="50" y="70" width="92" height="58" rx="9" fill="#8b96a3" opacity="0.78" />
+                  <rect x="166" y="70" width="104" height="58" rx="9" fill="#2a6db0" opacity="0.74" />
+                  <path d="M58 148h204" stroke="#d8dee7" stroke-opacity="0.52" stroke-width="10" stroke-linecap="round" />
+                  <path d="M86 148h46M160 148h72" stroke="#101418" stroke-opacity="0.62" stroke-width="5" stroke-linecap="round" />
+                </svg>
+                <strong>Componente terminado</strong>
+                <span>Fotografía de proceso</span>
+              </div>
+            </div>
+            <figcaption>Componente terminado.</figcaption>
+          </figure>
+          <figure>
+            <div class="photo-slot">
+              <img class="local-photo" data-srcs="fotografias/foto-15.jpg|public/html/fotografias/foto-15.jpg" alt="Proceso técnico Veta Manufacturera" />
+              <div class="photo-placeholder" aria-hidden="true">
+                <svg viewBox="0 0 320 210" role="img">
+                  <rect x="22" y="42" width="276" height="126" rx="16" fill="#171b20" stroke="#d8dee7" stroke-opacity="0.26" />
+                  <rect x="50" y="70" width="92" height="58" rx="9" fill="#8b96a3" opacity="0.78" />
+                  <rect x="166" y="70" width="104" height="58" rx="9" fill="#2a6db0" opacity="0.74" />
+                  <path d="M58 148h204" stroke="#d8dee7" stroke-opacity="0.52" stroke-width="10" stroke-linecap="round" />
+                  <path d="M86 148h46M160 148h72" stroke="#101418" stroke-opacity="0.62" stroke-width="5" stroke-linecap="round" />
+                </svg>
+                <strong>Proceso técnico</strong>
+                <span>Fotografía de proceso</span>
+              </div>
+            </div>
+            <figcaption>Proceso técnico.</figcaption>
+          </figure>
+          <figure>
+            <div class="photo-slot">
+              <img class="local-photo" data-srcs="fotografias/foto-16.jpg|public/html/fotografias/foto-16.jpg" alt="Capacidad productiva Veta Manufacturera" />
+              <div class="photo-placeholder" aria-hidden="true">
+                <svg viewBox="0 0 320 210" role="img">
+                  <rect x="22" y="42" width="276" height="126" rx="16" fill="#171b20" stroke="#d8dee7" stroke-opacity="0.26" />
+                  <rect x="50" y="70" width="92" height="58" rx="9" fill="#8b96a3" opacity="0.78" />
+                  <rect x="166" y="70" width="104" height="58" rx="9" fill="#2a6db0" opacity="0.74" />
+                  <path d="M58 148h204" stroke="#d8dee7" stroke-opacity="0.52" stroke-width="10" stroke-linecap="round" />
+                  <path d="M86 148h46M160 148h72" stroke="#101418" stroke-opacity="0.62" stroke-width="5" stroke-linecap="round" />
+                </svg>
+                <strong>Capacidad productiva</strong>
+                <span>Fotografía de proceso</span>
+              </div>
+            </div>
+            <figcaption>Capacidad productiva.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto">
+      <div class="container">
+        <h2>Contacto y captura de leads</h2>
+        <p class="subtitle">Compártenos tu requerimiento técnico. Podemos orientarte sobre materiales, proceso de fabricación, moldes, volumen estimado y siguientes pasos.</p>
+        <div class="contact-wrapper">
+          <form>
+            <div>
+              <label for="nombre">Nombre</label>
+              <input id="nombre" name="nombre" type="text" placeholder="Nombre completo" required />
+            </div>
+            <div>
+              <label for="empresa">Empresa</label>
+              <input id="empresa" name="empresa" type="text" placeholder="Razón social" required />
+            </div>
+            <div>
+              <label for="correo">Correo</label>
+              <input id="correo" name="correo" type="email" placeholder="correo@empresa.com" required />
+            </div>
+            <div>
+              <label for="telefono">Teléfono</label>
+              <input id="telefono" name="telefono" type="tel" placeholder="55 0000 0000" required />
+            </div>
+            <div>
+              <label for="descripcion">Descripción del proyecto</label>
+              <textarea id="descripcion" name="descripcion" placeholder="Describe dimensiones, material deseado, uso de la pieza y volumen estimado"></textarea>
+            </div>
+            <button type="submit">Hablemos de tu proyecto</button>
+          </form>
+          <div class="contact-info">
+            <h3>Datos de contacto</h3>
+            <p><strong>Tel:</strong> <a href="tel:+525554569037">55 5456 9037</a> / <a href="tel:+525557354634">55 5735 4634</a></p>
+            <p><strong>Dirección:</strong> Mariano Escobedo No. 510, Piso 7, Col. Anzures, CDMX</p>
+            <p><strong>Especialidad:</strong> diseño y fabricación de piezas industriales, termoformado en México, piezas a la medida fibra de vidrio y maquila industrial.</p>
+            <p><strong>Atendemos:</strong> PYMES, corporativos, integradores, fabricantes de equipo y áreas de compras industriales.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-content">
+      <p>Veta Manufacturera · 30 años en México · Termoformado · Fabricación en fibra de vidrio · Maquila industrial México</p>
+      <div class="social-links"><a href="https://www.facebook.com/vetamanufacturera/" target="_blank" rel="noopener">Facebook</a></div>
+    </div>
+  </footer>
+
+  <a class="floating-whatsapp" href="https://wa.me/525554569037" target="_blank" rel="noopener" aria-label="Enviar mensaje por WhatsApp a Veta Manufacturera">WhatsApp</a>
+
+  <script>
+    document.querySelectorAll('.nav-links a[href^="#"], .brand[href^="#"]').forEach((link) => {
+      link.addEventListener('click', (event) => {
+        const target = document.querySelector(link.getAttribute('href'));
+        if (!target) return;
+        event.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        history.pushState(null, '', link.getAttribute('href'));
+      });
+    });
+
+    document.querySelectorAll('.local-photo').forEach((image) => {
+      const sources = (image.dataset.srcs || '').split('|').filter(Boolean);
+      let index = 0;
+
+      function tryNextSource() {
+        if (index >= sources.length) {
+          image.removeAttribute('src');
+          image.classList.remove('is-loaded');
+          return;
+        }
+        image.src = sources[index];
+        index += 1;
+      }
+
+      image.addEventListener('load', () => image.classList.add('is-loaded'));
+      image.addEventListener('error', tryNextSource);
+      tryNextSource();
+    });
+  </script>
+</body>
+</html>

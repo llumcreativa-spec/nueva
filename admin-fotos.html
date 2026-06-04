@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Acceso privado | Fotografías y logotipo Veta Manufacturera</title>
+  <style>
+    :root {
+      --bg: #0f1114;
+      --surface: #171b20;
+      --surface-light: #212833;
+      --text: #e5e9f0;
+      --muted: #b4bdc7;
+      --accent: #2a6db0;
+      --accent-light: #3f8dd6;
+      --line: rgba(255, 255, 255, 0.09);
+      --danger: #d65f5f;
+      --success: #63c27d;
+      --warning: #f3c969;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(63, 141, 214, 0.22), transparent 42%),
+        linear-gradient(135deg, #0f1114, #171b20 62%, #0c0e11);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container {
+      width: min(1320px, 94%);
+      margin: 0 auto;
+      padding: 42px 0;
+    }
+
+    .admin-header,
+    .panel {
+      background: rgba(23, 27, 32, 0.94);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: 0 22px 50px rgba(0, 0, 0, 0.35);
+    }
+
+    .admin-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 22px;
+      margin-bottom: 22px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      text-transform: uppercase;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+    }
+
+    .logo-mark {
+      display: inline-grid;
+      place-items: center;
+      width: clamp(280px, 30vw, 420px);
+      height: 148px;
+      border-radius: 18px;
+      background: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.32);
+      overflow: hidden;
+      flex: 0 0 auto;
+    }
+
+    .logo-mark img,
+    .logo-mark svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .logo-mark img {
+      transform: scale(1.72);
+      transform-origin: center;
+    }
+
+    .logo-mark svg {
+      width: 48px;
+      height: 48px;
+    }
+
+    .logo-fallback { display: none; }
+
+    .status {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin: 0;
+    }
+
+    .panel {
+      padding: 28px;
+      margin-bottom: 22px;
+    }
+
+    h1,
+    h2,
+    h3 { line-height: 1.15; margin-top: 0; }
+
+    h1 { font-size: clamp(2rem, 4vw, 3.1rem); margin-bottom: 12px; }
+    h2 { font-size: clamp(1.35rem, 2.5vw, 2rem); }
+
+    p { color: var(--muted); }
+
+    label {
+      display: block;
+      font-weight: 700;
+      color: var(--muted);
+      margin-bottom: 7px;
+    }
+
+    input,
+    button {
+      width: 100%;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    input {
+      padding: 12px 13px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: #101418;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+
+    input[type="file"] {
+      background: #f4f7fb;
+      color: #17202a;
+      cursor: pointer;
+    }
+
+    button,
+    .file-action {
+      border: 0;
+      padding: 13px 18px;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 800;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    button:hover,
+    .file-action:hover { background: var(--accent-light); }
+
+    button.secondary {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+    }
+
+    button.danger-button { background: rgba(214, 95, 95, 0.8); }
+
+    .login-card {
+      max-width: 520px;
+      margin: 48px auto;
+    }
+
+    .error {
+      display: none;
+      color: #fff;
+      background: rgba(214, 95, 95, 0.22);
+      border: 1px solid rgba(214, 95, 95, 0.6);
+      padding: 10px 12px;
+      border-radius: 8px;
+      margin-top: 14px;
+    }
+
+    .private-area { display: none; }
+    .private-area.is-visible { display: block; }
+    .login-card.is-hidden { display: none; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 22px;
+    }
+
+    .upload-box {
+      background: var(--surface-light);
+      border: 1px dashed rgba(63, 141, 214, 0.72);
+      border-radius: 14px;
+      padding: 22px;
+    }
+
+    .upload-box.wide { grid-column: 1 / -1; }
+
+    .step-list {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      list-style: none;
+      margin: 20px 0 0;
+      padding: 0;
+    }
+
+    .step-list li {
+      background: rgba(255, 255, 255, 0.045);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 14px;
+      color: var(--muted);
+    }
+
+    .step-list strong { display: block; color: #fff; }
+
+    .drop-zone {
+      border: 2px dashed rgba(255, 255, 255, 0.22);
+      border-radius: 16px;
+      background: rgba(16, 20, 24, 0.72);
+      padding: 24px;
+      text-align: center;
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .drop-zone.is-dragover {
+      border-color: var(--accent-light);
+      background: rgba(63, 141, 214, 0.14);
+    }
+
+    .drop-zone input { margin-bottom: 0; }
+
+    .logo-preview-large {
+      display: grid;
+      place-items: center;
+      min-height: 280px;
+      margin-top: 16px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: #fff;
+      overflow: hidden;
+      padding: 8px;
+    }
+
+    .logo-preview-large img {
+      width: min(100%, 760px);
+      max-height: 270px;
+      object-fit: contain;
+      transform: scale(1.45);
+      transform-origin: center;
+    }
+
+    .empty-state {
+      color: var(--muted);
+      border: 1px dashed rgba(255, 255, 255, 0.18);
+      border-radius: 12px;
+      padding: 18px;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.035);
+    }
+
+    .organizer-toolbar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 12px;
+      margin: 16px 0;
+    }
+
+    .photo-organizer {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+
+    .photo-card {
+      background: #101418;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+      cursor: grab;
+    }
+
+    .photo-card.is-dragging { opacity: 0.55; }
+
+    .photo-card img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      display: block;
+      background: #0c0e11;
+    }
+
+    .photo-card-body { padding: 14px; }
+
+    .slot-name {
+      display: inline-block;
+      color: #101418;
+      background: var(--warning);
+      font-weight: 900;
+      padding: 4px 8px;
+      border-radius: 999px;
+      margin-bottom: 8px;
+    }
+
+    .photo-card small {
+      display: block;
+      color: var(--muted);
+      word-break: break-all;
+    }
+
+    .card-actions {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .card-actions button {
+      padding: 9px;
+      font-size: 0.84rem;
+    }
+
+    .path-list {
+      background: #101418;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      color: var(--muted);
+      list-style: none;
+      margin: 18px 0 0;
+      padding: 18px;
+    }
+
+    .path-list li + li { margin-top: 12px; }
+
+    code {
+      color: #fff;
+      font-weight: 800;
+      word-break: break-all;
+    }
+
+    .notice {
+      border-left: 4px solid var(--accent-light);
+      background: rgba(63, 141, 214, 0.1);
+      padding: 14px 16px;
+      border-radius: 10px;
+    }
+
+    .success { color: var(--success); font-weight: 800; }
+    .danger { color: var(--danger); font-weight: 800; }
+
+    @media (max-width: 720px) {
+      .logo-mark { width: min(84vw, 300px); height: 120px; }
+      .logo-mark img { transform: scale(1.62); }
+      .admin-header { align-items: flex-start; }
+      .card-actions { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <section id="login" class="panel login-card" aria-labelledby="login-title">
+      <h1 id="login-title">Acceso privado</h1>
+      <p>Área interna para preparar fotografías y logotipo antes de subirlos al hosting. Esta página no aparece en el menú público del sitio y las imágenes del sitio público se cargan desde archivos locales, no desde internet.</p>
+      <form id="loginForm">
+        <label for="accessCode">Clave de acceso</label>
+        <input id="accessCode" type="password" autocomplete="current-password" placeholder="Ingresa la clave privada" required />
+        <button type="submit">Entrar al panel</button>
+        <p id="loginError" class="error" role="alert">Clave incorrecta. Verifica la clave privada configurada para el panel.</p>
+      </form>
+    </section>
+
+    <section id="privateArea" class="private-area" aria-label="Panel privado para fotografías y logotipo">
+      <header class="admin-header">
+        <div class="brand">
+          <span class="logo-mark" aria-hidden="true">
+            <img src="LOGOTIPO.jpg" alt="" onerror="this.onerror=function(){this.style.display='none'; this.nextElementSibling.style.display='block';}; this.src='public/html/LOGOTIPO.jpg';" />
+            <svg class="logo-fallback" viewBox="0 0 64 64" role="img" aria-label="Logotipo provisional Veta Manufacturera">
+              <path d="M8 12h15l9 28 9-28h15L39 54H25L8 12Z" fill="#ffffff"/>
+              <path d="M32 40 23 12h18L32 40Z" fill="#d8dee7" opacity="0.72"/>
+            </svg>
+          </span>
+          <span>Veta Manufacturera</span>
+        </div>
+        <p class="status"><span class="success">Panel privado activo</span> · Organizador de logotipo y fotografías</p>
+      </header>
+
+      <section class="panel">
+        <h1>Subir, ordenar y preparar imágenes</h1>
+        <p>Selecciona el logotipo y hasta 16 fotografías, acomódalas en el orden correcto y descarga cada archivo con el nombre que debe subirse al hosting.</p>
+        <ul class="step-list" aria-label="Pasos para preparar imágenes">
+          <li><strong>1. Carga el logotipo</strong> Usa un archivo JPG y verifica que se vea grande y completo.</li>
+          <li><strong>2. Carga fotografías</strong> Arrastra o selecciona hasta 16 imágenes de procesos, moldes, fibra y piezas.</li>
+          <li><strong>3. Acomoda el orden</strong> Usa subir, bajar o arrastrar las tarjetas. Las primeras 4 van a la galería principal y las demás a la galería ampliada.</li>
+          <li><strong>4. Sube al hosting</strong> Guarda los archivos con los nombres indicados en <code>public/html</code>.</li>
+        </ul>
+        <div class="notice">
+          <p><strong>Importante:</strong> esta página HTML estática ayuda a preparar, previsualizar y renombrar archivos. Para una carga real al servidor, usa el administrador de archivos del hosting, cPanel o FTP.</p>
+        </div>
+      </section>
+
+      <section class="grid">
+        <article class="upload-box">
+          <h2>1. Logotipo grande</h2>
+          <p>Selecciona el logotipo oficial. En la página pública se mostrará más grande en el encabezado.</p>
+          <label for="logoUpload">Seleccionar logotipo JPG</label>
+          <input id="logoUpload" type="file" accept=".jpg,.jpeg,image/jpeg" />
+          <div id="logoPreview" class="logo-preview-large" aria-live="polite">
+            <p class="empty-state">Aún no has seleccionado el logotipo. Debe guardarse como <code>LOGOTIPO.jpg</code>.</p>
+          </div>
+          <button id="downloadLogo" type="button" class="secondary">Descargar como LOGOTIPO.jpg</button>
+        </article>
+
+        <article class="upload-box wide">
+          <h2>2. Fotografías de la galería</h2>
+          <p>Selecciona o arrastra fotografías JPG. Después acomódalas; el orden de las tarjetas será el orden de la página pública. Puedes preparar hasta 16 fotos: 4 principales y 12 adicionales en un espacio más amplio.</p>
+          <div id="photoDropZone" class="drop-zone">
+            <label for="photoUpload">Arrastra fotos aquí o selecciónalas</label>
+            <input id="photoUpload" type="file" accept=".jpg,.jpeg,image/jpeg" multiple />
+          </div>
+          <div class="organizer-toolbar">
+            <button id="downloadPhotos" type="button">Descargar fotos con nombres correctos</button>
+            <p id="photoCount" class="status">0 de 16 fotografías seleccionadas.</p>
+            <button id="clearPhotos" type="button" class="secondary">Limpiar fotografías</button>
+          </div>
+          <div id="photoOrganizer" class="photo-organizer" aria-live="polite">
+            <p class="empty-state">Aún no has seleccionado fotografías. Puedes usar hasta 16 espacios: <code>foto-1.jpg</code> a <code>foto-16.jpg</code>.</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel">
+        <h2>¿Dónde guardar los archivos?</h2>
+        <p>Cuando termines de acomodar las imágenes, sube los archivos al hosting usando estas rutas locales. No dependas de imágenes de internet. Respeta mayúsculas, minúsculas y extensiones.</p>
+        <ul class="path-list">
+          <li><strong>Logotipo oficial:</strong> <code>public/html/LOGOTIPO.jpg</code></li>
+          <li><strong>Fotos principales:</strong> <code>public/html/fotografias/foto-1.jpg</code> a <code>public/html/fotografias/foto-4.jpg</code></li>
+          <li><strong>Fotos adicionales en galería ampliada:</strong> <code>public/html/fotografias/foto-5.jpg</code> a <code>public/html/fotografias/foto-16.jpg</code></li>
+        </ul>
+        <p><span class="danger">Nota:</span> si el archivo <code>index.html</code> está dentro de <code>public/html</code>, el sitio cargará el logotipo con <code>LOGOTIPO.jpg</code> y las fotos con <code>fotografias/foto-1.jpg</code> hasta <code>fotografias/foto-16.jpg</code>. Las primeras cuatro aparecen arriba y las adicionales aparecen en la galería ampliada.</p>
+      </section>
+    </section>
+  </main>
+
+  <script>
+    const ACCESS_CODE = 'VETA-PRIVADO-2026';
+    const loginForm = document.getElementById('loginForm');
+    const accessCode = document.getElementById('accessCode');
+    const loginError = document.getElementById('loginError');
+    const login = document.getElementById('login');
+    const privateArea = document.getElementById('privateArea');
+
+    function showPrivateArea() {
+      login.classList.add('is-hidden');
+      privateArea.classList.add('is-visible');
+    }
+
+    if (sessionStorage.getItem('veta-admin-access') === 'ok') {
+      showPrivateArea();
+    }
+
+    loginForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      if (accessCode.value === ACCESS_CODE) {
+        sessionStorage.setItem('veta-admin-access', 'ok');
+        showPrivateArea();
+        return;
+      }
+      loginError.style.display = 'block';
+      accessCode.value = '';
+      accessCode.focus();
+    });
+
+    const logoUpload = document.getElementById('logoUpload');
+    const logoPreview = document.getElementById('logoPreview');
+    const downloadLogo = document.getElementById('downloadLogo');
+    const photoUpload = document.getElementById('photoUpload');
+    const photoDropZone = document.getElementById('photoDropZone');
+    const photoOrganizer = document.getElementById('photoOrganizer');
+    const photoCount = document.getElementById('photoCount');
+    const downloadPhotos = document.getElementById('downloadPhotos');
+    const clearPhotos = document.getElementById('clearPhotos');
+    const MAX_PHOTOS = 16;
+    let logoFile = null;
+    let photoFiles = [];
+    let draggedIndex = null;
+
+    function downloadFile(file, filename) {
+      const url = URL.createObjectURL(file);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = filename;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 500);
+    }
+
+    function renderLogoPreview() {
+      logoPreview.innerHTML = '';
+      if (!logoFile) {
+        logoPreview.innerHTML = '<p class="empty-state">Aún no has seleccionado el logotipo. Debe guardarse como <code>LOGOTIPO.jpg</code>.</p>';
+        return;
+      }
+      const image = document.createElement('img');
+      image.alt = `Vista previa grande de ${logoFile.name}`;
+      image.src = URL.createObjectURL(logoFile);
+      image.onload = () => URL.revokeObjectURL(image.src);
+      logoPreview.appendChild(image);
+    }
+
+    function addPhotos(files) {
+      Array.from(files).forEach((file) => {
+        const isJpeg = file.type === 'image/jpeg' || /\.jpe?g$/i.test(file.name);
+        if (!isJpeg) return;
+        photoFiles.push(file);
+      });
+      photoFiles = photoFiles.slice(0, MAX_PHOTOS);
+      photoUpload.value = '';
+      renderPhotoOrganizer();
+    }
+
+    function movePhoto(fromIndex, toIndex) {
+      if (toIndex < 0 || toIndex >= photoFiles.length) return;
+      const item = photoFiles.splice(fromIndex, 1)[0];
+      photoFiles.splice(toIndex, 0, item);
+      renderPhotoOrganizer();
+    }
+
+    function renderPhotoOrganizer() {
+      photoOrganizer.innerHTML = '';
+      if (!photoFiles.length) {
+        photoOrganizer.innerHTML = '<p class="empty-state">Aún no has seleccionado fotografías. Puedes usar hasta 16 espacios: <code>foto-1.jpg</code> a <code>foto-16.jpg</code>.</p>';
+        photoCount.textContent = `0 de ${MAX_PHOTOS} fotografías seleccionadas.`;
+        return;
+      }
+
+      photoCount.textContent = `${photoFiles.length} de ${MAX_PHOTOS} fotografías seleccionadas. Las fotos 1 a 4 van a la galería principal; de la 5 a la 16 van a la galería ampliada.`;
+
+      photoFiles.forEach((file, index) => {
+        const card = document.createElement('article');
+        card.className = 'photo-card';
+        card.draggable = true;
+        card.dataset.index = index;
+
+        const image = document.createElement('img');
+        image.alt = `Vista previa ${index + 1}: ${file.name}`;
+        image.src = URL.createObjectURL(file);
+        image.onload = () => URL.revokeObjectURL(image.src);
+
+        const body = document.createElement('div');
+        body.className = 'photo-card-body';
+        body.innerHTML = `
+          <span class="slot-name">Se sube como foto-${index + 1}.jpg</span>
+          <small>${index < 4 ? 'Galería principal' : 'Galería ampliada'}</small>
+          <small>Archivo seleccionado: ${file.name}</small>
+          <small>Ruta final: public/html/fotografias/foto-${index + 1}.jpg</small>
+        `;
+
+        const actions = document.createElement('div');
+        actions.className = 'card-actions';
+
+        const up = document.createElement('button');
+        up.type = 'button';
+        up.className = 'secondary';
+        up.textContent = 'Subir';
+        up.disabled = index === 0;
+        up.addEventListener('click', () => movePhoto(index, index - 1));
+
+        const down = document.createElement('button');
+        down.type = 'button';
+        down.className = 'secondary';
+        down.textContent = 'Bajar';
+        down.disabled = index === photoFiles.length - 1;
+        down.addEventListener('click', () => movePhoto(index, index + 1));
+
+        const remove = document.createElement('button');
+        remove.type = 'button';
+        remove.className = 'danger-button';
+        remove.textContent = 'Quitar';
+        remove.addEventListener('click', () => {
+          photoFiles.splice(index, 1);
+          renderPhotoOrganizer();
+        });
+
+        actions.append(up, down, remove);
+        body.appendChild(actions);
+        card.append(image, body);
+
+        card.addEventListener('dragstart', () => {
+          draggedIndex = index;
+          card.classList.add('is-dragging');
+        });
+        card.addEventListener('dragend', () => card.classList.remove('is-dragging'));
+        card.addEventListener('dragover', (event) => event.preventDefault());
+        card.addEventListener('drop', (event) => {
+          event.preventDefault();
+          if (draggedIndex === null || draggedIndex === index) return;
+          movePhoto(draggedIndex, index);
+          draggedIndex = null;
+        });
+
+        photoOrganizer.appendChild(card);
+      });
+    }
+
+    logoUpload.addEventListener('change', () => {
+      logoFile = logoUpload.files[0] || null;
+      renderLogoPreview();
+    });
+
+    downloadLogo.addEventListener('click', () => {
+      if (!logoFile) return;
+      downloadFile(logoFile, 'LOGOTIPO.jpg');
+    });
+
+    photoUpload.addEventListener('change', () => addPhotos(photoUpload.files));
+
+    ['dragenter', 'dragover'].forEach((eventName) => {
+      photoDropZone.addEventListener(eventName, (event) => {
+        event.preventDefault();
+        photoDropZone.classList.add('is-dragover');
+      });
+    });
+
+    ['dragleave', 'drop'].forEach((eventName) => {
+      photoDropZone.addEventListener(eventName, (event) => {
+        event.preventDefault();
+        photoDropZone.classList.remove('is-dragover');
+      });
+    });
+
+    photoDropZone.addEventListener('drop', (event) => addPhotos(event.dataTransfer.files));
+
+    downloadPhotos.addEventListener('click', () => {
+      photoFiles.forEach((file, index) => downloadFile(file, `foto-${index + 1}.jpg`));
+    });
+
+    clearPhotos.addEventListener('click', () => {
+      photoFiles = [];
+      photoUpload.value = '';
+      renderPhotoOrganizer();
+    });
+  </script>
+</body>
+</html>
